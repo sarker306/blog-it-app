@@ -1,4 +1,5 @@
 var security = require('../lib/security/security.js');
+var messages = require('../messages.js');
 
 describe('security middlewares', function () {
 
@@ -21,8 +22,7 @@ describe('security middlewares', function () {
         security.requireAuthenticationMiddleWare(req, res, function () {
             expect(true).toBe(false);//should not get here
         });
-        expect(res.json).toHaveBeenCalled();
-        expect(res.json.mostRecentCall.args[0]).toBe(401);
+        expect(res.json).toHaveBeenCalledWith(401, {message: messages.authenticationRequired});
     });
 
     it('should process the next middleware', function () {
@@ -35,8 +35,7 @@ describe('security middlewares', function () {
         security.requireAdminMiddleWare({user: {profile: 'guest'}}, res, function () {
             expect(true).toBe(false);//should not get here
         });
-        expect(res.json).toHaveBeenCalled();
-        expect(res.json.mostRecentCall.args[0]).toBe(403);
+        expect(res.json).toHaveBeenCalledWith(403, {message: messages.forbidden});
     });
 
     it('should process the next middleware', function () {
@@ -81,8 +80,7 @@ describe('security middlewares', function () {
         };
 
         middleware(req, res, next.next);
-        expect(next.next).not.toHaveBeenCalled();
-        expect(res.json.mostRecentCall.args[0]).toBe(400);
+        expect(next.next).not.toHaveBeenCalledWith(400, {message: messages.badRequest});
     });
 
 

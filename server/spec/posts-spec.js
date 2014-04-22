@@ -5,6 +5,7 @@ var postAPI = require('../lib/posts/postAPI.js');
 var request = require('supertest');
 var bodyParser = require('body-parser');
 var when = require('blog-it-stub').when;
+var messages = require('../messages.js');
 
 describe('posts module', function () {
 
@@ -30,14 +31,16 @@ describe('posts module', function () {
                 postTitle: 'new post'
             };
 
-            dao.insert(newPost).then(function () {
-                dao.findOne({postTitle: 'new post'}).then(function (result) {
+            dao.insert(newPost)
+                .then(function () {
+                    return dao.findOne({postTitle: 'new post'});
+                })
+                .then(function (result) {
                     expect(result._id).toEqual('new-post');
                     expect(result.postTitle).toEqual('new post');
                     expect(result.createdAt).toBeDefined();
                     done();
                 });
-            });
         });
 
         it('should fetch a set of all the existing tag from all the post collection', function (done) {
@@ -46,14 +49,17 @@ describe('posts module', function () {
                 {postTitle: 'second post', tags: ['second', 'post']}
             ];
 
-            dao.insert(postsSample[0]).then(function () {
-                dao.insert(postsSample[1]).then(function () {
-                    dao.tags().then(function (result) {
-                        expect(result).toEqual(['first', 'post', 'second']);
-                        done();
-                    });
+            dao.insert(postsSample[0]).
+                then(function () {
+                    return dao.insert(postsSample[1]);
+                })
+                .then(function () {
+                    return dao.tags()
+                })
+                .then(function (result) {
+                    expect(result).toEqual(['first', 'post', 'second']);
+                    done();
                 });
-            });
         });
     });
 
@@ -105,6 +111,42 @@ describe('posts module', function () {
                 stub.flush();
                 findOneStub.flush();
             });
+
+            it('should handle duplicate key ', function (done) {
+                var data = {postTitle: 'new post', postContent: 'post content'};
+                var stub = when(daoMock, 'insert').thenRejectWith({code: 11000});
+                var findOneStub = when(daoMock, 'findOne').thenResolveWith(data);
+                request(app)
+                    .post('/api/posts')
+                    .send(data)
+                    .expect('Content-Type', /json/)
+                    .expect(409, {message: messages.conflict})
+                    .end(function (err, response) {
+                        expect(err).toBeNull();
+                        done();
+                    });
+
+                stub.flush();
+                findOneStub.flush();
+            });
+
+            it('should handle internal error ', function (done) {
+                var data = {postTitle: 'new post', postContent: 'post content'};
+                var stub = when(daoMock, 'insert').thenRejectWith({code: 2323213});
+                var findOneStub = when(daoMock, 'findOne').thenResolveWith(data);
+                request(app)
+                    .post('/api/posts')
+                    .send(data)
+                    .expect('Content-Type', /json/)
+                    .expect(500, {message: messages.internalError})
+                    .end(function (err, response) {
+                        expect(err).toBeNull();
+                        done();
+                    });
+
+                stub.flush();
+                findOneStub.flush();
+            });
         });
 
         describe('GET /api/posts/:post', function () {
@@ -140,6 +182,22 @@ describe('posts module', function () {
                     });
                 stub.flush();
             });
+
+            it('should handle error', function (done) {
+                var stub = when(daoMock, 'findById').thenRejectWith({});
+                spyOn(daoMock, 'findById').andCallThrough();
+                request(app)
+                    .get('/api/posts/my-post')
+                    .expect('Content-Type', /json/)
+                    .expect(500, {message: messages.internalError})
+                    .end(function (err, res) {
+                        expect(err).toBeNull();
+                        expect(daoMock.findById).toHaveBeenCalledWith('my-post');
+                        done();
+                    });
+                stub.flush();
+            });
+
         });
 
         describe('GET /api/posts', function () {
@@ -191,6 +249,20 @@ describe('posts module', function () {
 
                 stub.flush();
             });
+
+            it('should handler error properly', function (done) {
+                var stub = when(daoMock, 'find').thenRejectWith({code: 2121});
+                spyOn(daoMock, 'find').andCallThrough();
+                request(app)
+                    .get('/api/posts')
+                    .expect(500, {message: messages.internalError})
+                    .end(function (err) {
+                        expect(err).toBeNull();
+                        done();
+                    });
+                stub.flush();
+            });
+
         });
 
         describe('PUT /api/posts/:postId', function () {
@@ -236,17 +308,37 @@ describe('posts module', function () {
                 stub.flush();
             });
 
-            it('should return 400 with internal error message', function (done) {
+            it('should return 400 with bad request message', function (done) {
                 request(app)
                     .put('/api/posts/my-post')
                     .send({postTitle: 'my-post'})
                     .expect('Content-Type', /json/)
-                    .expect(400)
+                    .expect(400, {message: messages.badRequest})
                     .end(function (err, result) {
                         expect(err).toBeNull();
                         done();
                     });
             });
+
+            it('should handler internal error', function (done) {
+                var post = {
+                    _id: 'new-post',
+                    postTitle: 'new post',
+                    postContent: 'post content'};
+                var stub = when(daoMock, 'save').thenRejectWith({});
+                spyOn(daoMock, 'save').andCallThrough();
+                request(app)
+                    .put('/api/posts/new-post')
+                    .send(post)
+                    .expect(500, {message: messages.internalError})
+                    .end(function (err, result) {
+                        expect(err).toBeNull();
+                        expect(daoMock.save.mostRecentCall.args[0]).toEqual(post);
+                        done();
+                    });
+                stub.flush();
+            });
+
 
         });
 
@@ -285,6 +377,24 @@ describe('posts module', function () {
                 stub.flush();
             });
 
+            it('should handle internal server error', function (done) {
+                var stub = when(daoMock, 'removeById').thenRejectWith({});
+
+                spyOn(daoMock, 'removeById').andCallThrough();
+
+                request(app)
+                    .del('/api/posts/my-post')
+                    .expect('Content-Type', /json/)
+                    .expect(500, {message: messages.internalError})
+                    .end(function (err, res) {
+                        expect(err).toBeNull();
+                        expect(daoMock.removeById).toHaveBeenCalledWith('my-post');
+                        done();
+                    });
+                stub.flush();
+            });
+
+
         });
 
         describe('GET /api/posts/tags/all', function () {
@@ -308,8 +418,25 @@ describe('posts module', function () {
                     });
                 stub.flush();
             });
+
+            it('should handle internal server errror', function (done) {
+                var stub = when(daoMock, 'tags').thenRejectWith({});
+
+                spyOn(daoMock, 'tags').andCallThrough();
+
+                request(app)
+                    .get('/api/posts/tags/all')
+                    .expect('Content-Type', /json/)
+                    .expect(500, {message: messages.internalError})
+                    .end(function (err, res) {
+                        expect(err).toBeNull();
+                        expect(daoMock.tags).toHaveBeenCalled();
+                        done();
+                    });
+                stub.flush();
+            });
+
         });
 
     });
-
 });
