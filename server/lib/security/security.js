@@ -1,3 +1,5 @@
+var messages = require('../../messages.js');
+
 /**
  * middleware which checks if the request is made by a authenticated user or send a http 401
  * @param req request
@@ -8,7 +10,7 @@ exports.requireAuthenticationMiddleWare = function (req, res, next) {
     if (req.user) {
         return next();
     } else {
-        return res.json(401);
+        return res.json(401, {message: messages.authenticationRequired});
     }
 };
 
@@ -22,7 +24,7 @@ exports.requireAdminMiddleWare = function (req, res, next) {
     if (req.user && req.user.profile === 'admin') {
         return next();
     } else {
-        return res.json(403)
+        return res.json(403, {message: messages.forbidden});
     }
 };
 
@@ -36,7 +38,7 @@ function bodyCheckMiddlewareFactory(array) {
             return req.body[key] !== undefined;
         });
 
-        return hasAll === true ? next() : res.json(400)
+        return hasAll === true ? next() : res.json(400, {message: messages.badRequest})
     }
 }
 
