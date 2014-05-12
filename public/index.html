@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="/static/lib/angular/angular.js"></script>
+    <script src="/static/lib/angular/angular-route.js"></script>
+
+    <script src="/static/lib/showdown/showdown.js"></script>
+
+    <script src="/static/bower_components/lr-notifier/lrNotifier.js"></script>
+
+    <script src="/static/app.js"></script>
+
+    <script src="/static/modules/main/module.js"></script>
+    <script src="/static/modules/main/main.ctrl.js"></script>
+
+    <script src="/static/modules/partials/module.js"></script>
+
+    <script src="/static/modules/posts/module.js"></script>
+    <script src="/static/modules/posts/blogDashboard.ctrl.js"></script>
+    <script src="/static/modules/posts/editPost.ctrl.js"></script>
+    <script src="/static/modules/posts/post.ctrl.js"></script>
+    <script src="/static/modules/posts/post.service.js"></script>
+    <script src="/static/modules/posts/postList.ctrl.js"></script>
+    <script src="/static/modules/posts/tagCollection.dir.js"></script>
+
+    <script src="/static/modules/resource/module.js"></script>
+    <script src="/static/modules/resource/CRUDResource.provider.js"></script>
+
+    <script src="/static/modules/security/module.js"></script>
+    <script src="/static/modules/security/login.ctrl.js"></script>
+    <script src="/static/modules/security/security.service.js"></script>
+
+    <script src="/static/modules/user/module.js"></script>
+    <script src="/static/modules/user/user.service.js"></script>
+
+    <script src="/static/modules/markdown/module.js"></script>
+    <script src="/static/modules/markdown/makeHtml.filter.js"></script>
+    <script src="/static/modules/markdown/markdown.dir.js"></script>
+    <script src="/static/modules/markdown/markdown.service.js"></script>
+
+    <link rel="stylesheet" href="/static/themes/default/theme.css"/>
+
+    <title>Blog-it Home Page</title>
+</head>
+<body ng-controller="mainCtrl">
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Blog</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+    <div>
+        <a href="">log in</a>
+        <a href="">log out</a>
+    </div>
+</header>
+<div ng-view>
+</div>
+<footer>
+    powered by <a href="#">Blog IT</a>
+</footer>
+</body>
+</html>

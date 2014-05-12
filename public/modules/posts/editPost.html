@@ -1,0 +1,24 @@
+<div class="blog-post edit-post">
+    <h1>New post</h1>
+
+    <form ng-submit="savePost()">
+        <div class="post-edit-zone">
+            <label for="postTitle">Post title</label>
+            <input required type="text" id="postTitle" ng-model="post.postTitle"/>
+
+            <div class="edit-post-content">
+                <button type="button" class="btn icon icon-edit" ng-click="toggleEditor()"></button>
+                <p class="placeholder" ng-hide="post.postContent">Blog post content</p>
+
+                <div ng-bind-html-unsafe="post.postContent | makeHtml"></div>
+            </div>
+            <label>Tags:</label>
+
+            <div lr-tags-collection="post.tags" class="small"></div>
+        </div>
+        <div class="dialog-bar">
+            <input class="btn" type="submit" value="Save"/>
+        </div>
+    </form>
+</div>
+<editor is-editor-open="isEditorOpen" section="post._id" save-markdown="saveContent(text)"></editor>
