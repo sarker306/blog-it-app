@@ -4,13 +4,13 @@
 
         <p>
             published by <em>{{post.author}}</em> on
-            <time itemprop="dateCreated" datetime="{{post.createdAt | date}}">{{post.createdAt |
+            <time itemprop="dateCreated" datetime="{{post.createdAt | date:'yyyy-MM-dd'}}">{{post.createdAt |
                 date}}
             </time>
+        </p>
         <ul>
             <li ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
         </ul>
-        </p>
     </header>
     <div markdown-content="post._id"></div>
 </article>

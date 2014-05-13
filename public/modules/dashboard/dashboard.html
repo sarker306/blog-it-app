@@ -1,0 +1,35 @@
+<ul ng-controller="postListCtrl">
+    <li ng-repeat="post in posts" ng-click="selectPost(post)">
+        <article>
+            <h1>
+                {{post.title}}
+            </h1>
+
+            <div markdown-content="post._id" markdown-selector="p"></div>
+        </article>
+    </li>
+</ul>
+<section>
+    <div ng-if="!selectedPost">
+        <p>Here is your dashboard. You'll be able to find the list of published and draft posts. A preview as they will
+            be published is available, so is a set of tools which will allow you to create/edit/publish/delete your
+            posts </p>
+    </div>
+    <article ng-if="selectedPost">
+        <header>
+            <h1>{{selectedPost.postTitle}}</h1>
+
+            <p>
+                published by <em>{{selectedPost.author}}</em> on
+                <time itemprop="dateCreated" datetime="{{selectedPost.createdAt | date:'yyyy-MM-dd'}}">
+                    {{selectedPost.createdAt |
+                    date}}
+                </time>
+            </p>
+            <ul>
+                <li ng-repeat="tag in selectedPost.tags">{{tag}}</li>
+            </ul>
+        </header>
+        <div markdown-content="selectedPost._id"></div>
+    </article>
+</section>

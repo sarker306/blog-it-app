@@ -5,7 +5,8 @@
         'ngRoute',
         'blog-it.resource',
         'blog-it.posts',
-        'blog-it.markdown'
+        'blog-it.markdown',
+        'blog-it.dashboard'
     ])
         .constant('baseUrl', baseUrl)
         .config(['CRUDResourceProvider', '$routeProvider', '$locationProvider', function (resourceProvider, routeProvider, locationProvider) {
