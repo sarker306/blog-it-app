@@ -337,3 +337,78 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+.main-header {
+  text-align: right; }
+  .main-header li {
+    display: inline;
+    padding: 1em; }
+
+.main-navigation {
+  text-align: center;
+  display: inline-block; }
+
+.home-container > h1 {
+  text-align: center; }
+
+.post {
+  text-align: justify; }
+
+.post-collection {
+  padding: 1em; }
+
+.post-item {
+  padding: 1em 0; }
+
+.post h1 {
+  font-size: 1.3em; }
+
+.tag-collection {
+  float: right;
+  margin: 1em 0; }
+
+.tag-item {
+  display: inline;
+  padding: 0 1em; }
+
+.metadata {
+  display: inline-block; }
+  .metadata em, .metadata time {
+    font-weight: bold; }
+
+.post-content {
+  clear: both; }
+
+.dashboard-container {
+  display: flex; }
+  .dashboard-container .post-collection {
+    overflow-y: auto;
+    height: 80vh; }
+  .dashboard-container .post h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+
+.post-preview > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.side-panel {
+  width: 20%;
+  flex-shrink: 0; }
+
+.main-content {
+  flex-grow: 1; }
+
+body {
+  font-size: 100%; }
+
+ul, ol {
+  list-style: none; }
+
+footer {
+  padding: 0 2em; }
+
+div[ng-view] {
+  padding: 1em; }

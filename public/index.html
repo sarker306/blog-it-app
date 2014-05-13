@@ -2,6 +2,7 @@
 <html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <script src="/static/lib/angular/angular.js"></script>
     <script src="/static/lib/angular/angular-route.js"></script>
 
@@ -39,22 +40,21 @@
     <script src="/static/modules/markdown/markdown.dir.js"></script>
     <script src="/static/modules/markdown/markdown.service.js"></script>
 
+    <script src="/static/modules/dashboard/module.js"></script>
+    <script src="/static/modules/dashboard/dashboard.ctrl.js"></script>
+
     <link rel="stylesheet" href="/static/themes/default/theme.css"/>
 
     <title>Blog-it Home Page</title>
 </head>
 <body ng-controller="mainCtrl">
-<header>
-    <nav>
-        <ul>
+<header class="main-header">
+    <nav class="main-navigation">
+    <ul>
             <li><a href="/">Blog</a></li>
             <li><a href="/about">About</a></li>
         </ul>
     </nav>
-    <div>
-        <a href="">log in</a>
-        <a href="">log out</a>
-    </div>
 </header>
 <div ng-view>
 </div>

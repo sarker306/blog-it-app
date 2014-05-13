@@ -1,0 +1,39 @@
+.post {
+  text-align: justify;
+}
+
+.post-collection {
+  padding: 1em;
+}
+
+.post-item {
+  padding: 1em 0;
+}
+
+.post {
+  h1 {
+    font-size: 1.3em;
+  }
+}
+
+.tag-collection {
+  float: right;
+  margin: 1em 0;
+}
+
+.tag-item {
+  display: inline;
+  padding: 0 1em;
+}
+
+.metadata {
+  display: inline-block;
+
+  em, time {
+    font-weight: bold;
+  }
+}
+
+.post-content {
+  clear: both;
+}

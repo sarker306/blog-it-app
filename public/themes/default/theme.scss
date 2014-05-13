@@ -1,2 +1,23 @@
-@import './partials/_moderniz';
 @import './_variables';
+@import './partials/_moderniz';
+@import './partials/_header';
+@import './partials/_home';
+@import './partials/_post';
+@import './partials/_dashboard';
+
+body {
+  font-size: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+footer {
+  padding: 0 2em;
+}
+
+div[ng-view] {
+  padding: 1em;
+}
+

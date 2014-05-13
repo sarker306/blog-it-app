@@ -272,7 +272,7 @@ describe('posts module', function () {
                     return posts;
                 });
             };
-            ctrl = $controller('postListCtrl', {$scope: scope, Post: postMock});
+            ctrl = $controller('postListCtrl', {$scope: scope, Post: postMock, tag: ''});
         }));
 
         it('should init the scope', function () {
@@ -292,8 +292,6 @@ describe('posts module', function () {
             expect(scope.posts.length).toBe(4);
             expect(postMock.find).toHaveBeenCalledWith({start: 2});
         });
-
-
     });
 });
 

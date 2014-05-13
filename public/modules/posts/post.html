@@ -1,15 +1,15 @@
-<article>
+<article class="post">
     <header>
         <h1>{{post.postTitle}}</h1>
 
-        <p>
-            published by <em>{{post.author}}</em> on
+        <p class="metadata">
+        published by <em>{{post.author}}</em> on
             <time itemprop="dateCreated" datetime="{{post.createdAt | date:'yyyy-MM-dd'}}">{{post.createdAt |
                 date}}
             </time>
         </p>
-        <ul>
-            <li ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
+        <ul class="tag-collection">
+            <li class="tag-item" ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
         </ul>
     </header>
     <div markdown-content="post._id"></div>

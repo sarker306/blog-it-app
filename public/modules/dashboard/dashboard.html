@@ -1,35 +1,41 @@
-<ul ng-controller="postListCtrl">
-    <li ng-repeat="post in posts" ng-click="selectPost(post)">
-        <article>
-            <h1>
-                {{post.title}}
-            </h1>
+<div class="dashboard-container">
+    <div class=" side-panel" ng-controller="postListCtrl">
+        <ul class="post-collection">
+            <li class="post-item" ng-repeat="post in posts" ng-click="selectPost(post)">
+                <article class="post">
+                    <h1>
+                        {{post.postTitle}}
+                    </h1>
 
-            <div markdown-content="post._id" markdown-selector="p"></div>
-        </article>
-    </li>
-</ul>
-<section>
-    <div ng-if="!selectedPost">
-        <p>Here is your dashboard. You'll be able to find the list of published and draft posts. A preview as they will
-            be published is available, so is a set of tools which will allow you to create/edit/publish/delete your
-            posts </p>
+                    <div class="post-preview" markdown-content="post._id" markdown-selector="p"></div>
+                </article>
+            </li>
+        </ul>
+        <span ng-click="loadMore()">more</span>
     </div>
-    <article ng-if="selectedPost">
-        <header>
-            <h1>{{selectedPost.postTitle}}</h1>
+    <section class="main-content">
+        <div ng-if="!selectedPost">
+            <p>Here is your dashboard. You'll be able to find the list of published and draft posts. A preview as they
+                will
+                be published is available, so is a set of tools which will allow you to create/edit/publish/delete your
+                posts </p>
+        </div>
+        <article class="post" ng-if="selectedPost">
+            <header>
+                <h1>{{selectedPost.postTitle}}</h1>
 
-            <p>
-                published by <em>{{selectedPost.author}}</em> on
-                <time itemprop="dateCreated" datetime="{{selectedPost.createdAt | date:'yyyy-MM-dd'}}">
-                    {{selectedPost.createdAt |
-                    date}}
-                </time>
-            </p>
-            <ul>
-                <li ng-repeat="tag in selectedPost.tags">{{tag}}</li>
-            </ul>
-        </header>
-        <div markdown-content="selectedPost._id"></div>
-    </article>
-</section>
+                <p>
+                    published by <em>{{selectedPost.author}}</em> on
+                    <time itemprop="dateCreated" datetime="{{selectedPost.createdAt | date:'yyyy-MM-dd'}}">
+                        {{selectedPost.createdAt |
+                        date}}
+                    </time>
+                </p>
+                <ul class="tag-collection">
+                    <li class="tag-item" ng-repeat="tag in selectedPost.tags">{{tag}}</li>
+                </ul>
+            </header>
+            <div markdown-content="selectedPost._id"></div>
+        </article>
+    </section>
+</div>

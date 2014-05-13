@@ -1,0 +1,32 @@
+@import '../mixins/common';
+
+.dashboard-container {
+  display: flex;
+
+  .post-collection {
+    overflow-y: auto;
+    height: 80vh;
+  }
+
+  .post h1 {
+    @include nowrap;
+  }
+}
+
+.post-preview {
+
+  & > p {
+    @include nowrap;
+  }
+}
+
+.side-panel {
+  width: 20%;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+
