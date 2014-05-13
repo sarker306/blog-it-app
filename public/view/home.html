@@ -3,15 +3,19 @@
     <ul>
         <li ng-repeat="post in posts">
             <article>
-                <h2>{{post.postTitle}}</h2>
+                <header>
+                    <h1>{{post.postTitle}}</h1>
 
-                <p>{{post.postContent}}</p>
-
-                <div>
-
-                </div>
-
+                    <p>
+                        published by <em>{{post.author}}</em> on
+                        <time itemprop="dateCreated" datetime="{{post.createdAt | date}}">{{post.createdAt |
+                            date}}
+                        </time>
+                    </p>
+                </header>
+                <div markdown-selector="p" markdown-content="post._id"></div>
             </article>
         </li>
     </ul>
+    <span ng-click="loadMore()">more</span>
 </section>

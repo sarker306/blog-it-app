@@ -156,6 +156,16 @@ describe('markdown module', function () {
             expect(element.html()).toEqual('<a href="#">world</a>');
         }));
 
+        it('should be able to find matching on the root nodes', inject(function ($compile, $rootScope) {
+            md.set('mysection', 'hello world');
+
+            var element = $compile('<div markdown-selector="p" markdown-content="\'mysection\'"></div>')($rootScope);
+
+            $rootScope.$digest();
+
+            expect(element.html()).toEqual('<p>hello world</p>');
+        }));
+
 
     });
 });

@@ -13,7 +13,7 @@
 
                         markdown.get(value).then(function (md) {
                             var htmlString = convert(md);
-                            var inner = ng.element(htmlString);
+                            var inner = ng.element('<div>' + htmlString + '</div>');
                             var selector = attr.markdownSelector;
 
                             if (selector) {

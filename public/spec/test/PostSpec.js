@@ -281,6 +281,19 @@ describe('posts module', function () {
             expect(scope.posts).toEqual(posts);
         });
 
+        it('should load more', function () {
+            scope.$apply();
+            spyOn(postMock, 'find').andCallThrough();
+            expect(scope.posts.length).toBe(2);
+            scope.loadMore();
+            expect(scope.isLoading).toBe(true);
+            scope.$apply();
+            expect(scope.isLoading).toBe(false);
+            expect(scope.posts.length).toBe(4);
+            expect(postMock.find).toHaveBeenCalledWith({start: 2});
+        });
+
+
     });
 });
 
