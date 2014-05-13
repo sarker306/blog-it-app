@@ -5,8 +5,12 @@ node_js:
 services: mongodb
 
 before_script:
+  - npm install -g gulp jasmine-node
   - cd ./server/
+  - npm install
+  - cd ../public
   - npm install
 
 script:
-  - npm test
+  - gulp karma-CI
+  - jasmine-node ../server/spec --verbose --forceexit
