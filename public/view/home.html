@@ -12,8 +12,13 @@
                             date}}
                         </time>
                     </p>
+                    <ul>
+                        <li ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
+                    </ul>
                 </header>
                 <div markdown-selector="p" markdown-content="post._id"></div>
+                <a ng-href="./posts/{{post._id}}">Read more</a>
+
             </article>
         </li>
     </ul>

@@ -5,7 +5,7 @@
 
             function findPost(route, post) {
                 var postId = route.current.params.post;
-                return post.one(postId).then(function (result) {
+                return post.findOne(postId).then(function (result) {
                     return result;
                 });
             }

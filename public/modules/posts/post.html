@@ -1,14 +1,16 @@
-<article class="blog-post">
-    <h1 class="big">{{ post.postTitle }}</h1>
+<article>
+    <header>
+        <h1>{{post.postTitle}}</h1>
 
-    <div class="metadata">
         <p>
-            published by <em>{{ post.author }}</em> on {{ post.createdAt | date }}
-        </p>
-        <ul class="tag-list">
-            <li class="tag-item very-small btn" ng-repeat="tag in post.tags"><a ng-href="/blog/home?tag={{tag}}">{{ tag
-                }}</a></li>
+            published by <em>{{post.author}}</em> on
+            <time itemprop="dateCreated" datetime="{{post.createdAt | date}}">{{post.createdAt |
+                date}}
+            </time>
+        <ul>
+            <li ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
         </ul>
-    </div>
+        </p>
+    </header>
     <div markdown-content="post._id"></div>
 </article>
