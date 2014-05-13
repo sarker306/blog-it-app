@@ -52,6 +52,7 @@ gulp.task('index', function () {
 gulp.task('karma-CI', function (done) {
     var conf = require('./spec/karma-common.js');
     conf.singleRun = true;
+    conf.browsers = ['PhantomJS'];
     conf.basePath = './';
     console.log(conf);
     karma.start(conf, done);
