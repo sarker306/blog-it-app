@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 function verify(email, password, done) {
 
-    this.user.findOneById(email).then(function (user) {
+    this.user.findById(email).then(function (user) {
 
         function isValidPassword(password) {
             return bcrypt.compareSync(password, user.password);

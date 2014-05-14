@@ -29,7 +29,7 @@ exports.initialize = function (userDao, expressapp, strategies) {
      */
     passport.deserializeUser(function (id, done) {
 
-        userDao.findOneById(id).then(function (result) {
+        userDao.findById(id).then(function (result) {
             done(null, result);
         }, function (err) {
             done(err, null);

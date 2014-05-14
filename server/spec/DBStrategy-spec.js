@@ -18,7 +18,7 @@ describe('DB strategy', function () {
     });
 
     it('should send a message if the user can not be found', function (done) {
-        var stub = when(userMock, 'findOneById').thenResolveWith(null);
+        var stub = when(userMock, 'findById').thenResolveWith(null);
         dbStrat._verify('whateverEmail', 'secret', function (err, result, args) {
             expect(err).toBeNull();
             expect(result).toBe(false);
@@ -29,7 +29,7 @@ describe('DB strategy', function () {
     });
 
     it('should send a message if the userMock password is incorrect', function (done) {
-        var stub = when(userMock, 'findOneById').thenResolveWith({
+        var stub = when(userMock, 'findById').thenResolveWith({
             email: 'userMock@valid.com',
             password: bcrypt.hashSync('correct')
         });
@@ -48,7 +48,7 @@ describe('DB strategy', function () {
             email: 'userMock@valid.com',
             password: bcrypt.hashSync('correct')
         };
-        var stub = when(userMock, 'findOneById').thenResolveWith(user);
+        var stub = when(userMock, 'findById').thenResolveWith(user);
         dbStrat._verify('userMock@valid.com', 'correct', function (err, result, args) {
             expect(err).toBeNull();
             expect(result).toEqual(user);
@@ -60,7 +60,7 @@ describe('DB strategy', function () {
 
     it('should reject the authentication', function (done) {
 
-        var stub = when(userMock, 'findOneById').thenRejectWith('ERROR');
+        var stub = when(userMock, 'findById').thenRejectWith('ERROR');
 
         dbStrat._verify('userMock@valid.com', 'correct', function (err, result, args) {
             expect(err).toEqual('ERROR');
