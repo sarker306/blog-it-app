@@ -27,13 +27,10 @@
             }
 
             function getCurrentUser() {
-                if (currentUser === undefined) {
-                    return fetchUser().then(function () {
-                        return currentUser;
-                    });
-                } else {
-                    return q.when(currentUser);
-                }
+                return currentUser === undefined ? fetchUser().then(function () {
+                    return currentUser;
+                }) : q.when(currentUser);
+
             }
 
             return {

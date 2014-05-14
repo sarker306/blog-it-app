@@ -9,7 +9,7 @@ describe('dashboard module', function () {
 
         beforeEach(inject(function ($controller, $rootScope) {
             scope = $rootScope;
-            ctrl = $controller('dashboardCtrl', {$scope: scope});
+            ctrl = $controller('dashboardCtrl', {$scope: scope, user: {}});
         }));
 
         it('should select a post', function () {

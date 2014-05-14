@@ -105,7 +105,7 @@ describe('security module', function () {
 
             dependencies.$scope = scope;
             dependencies.Security = securityMock;
-            dependencies.Notifier = notifier;
+            dependencies.lrNotifier = notifier;
             ctrl = $controller('loginCtrl', dependencies);
         }));
 
@@ -114,10 +114,11 @@ describe('security module', function () {
             expect(channelMock.name).toBe('global');
         });
 
-        it('should notify whether login was a success', function () {
+        it('should notify whether login was a success and redirect', inject(function ($location) {
             spyOn(channelMock, 'success');
             spyOn(channelMock, 'error');
             spyOn(securityMock, 'login').andCallThrough();
+            $location.search({red: 'dashboard'});
             scope.$digest();
             scope.credentials = {email: 'email', password: 'password'};
             scope.submit();
@@ -125,7 +126,8 @@ describe('security module', function () {
             expect(securityMock.login).toHaveBeenCalledWith('email', 'password');
             expect(channelMock.success).toHaveBeenCalledWith('login successful!');
             expect(channelMock.error).not.toHaveBeenCalled();
-        });
+            expect($location.path()).toEqual('/dashboard');
+        }));
 
         it('should notify whether login was an error', function () {
             spyOn(channelMock, 'success');
