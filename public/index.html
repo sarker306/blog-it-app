@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <script src="/static/lib/angular/angular.js"></script>
     <script src="/static/lib/angular/angular-route.js"></script>
+    <script src="/static/lib/angular/angular-sanitize.js"></script>
 
     <script src="/static/lib/showdown/showdown.js"></script>
+
+    <link rel="stylesheet" href="/static/lib/highlight/styles/default.css">
+    <script src="/static/lib/highlight/highlight.pack.js"></script>
 
     <script src="/static/bower_components/lr-notifier/lrNotifier.js"></script>
     <script src="/static/bower_components/lrInfiniteScroll/lrInfiniteScroll.js"></script>
@@ -40,6 +44,7 @@
     <script src="/static/modules/markdown/makeHtml.filter.js"></script>
     <script src="/static/modules/markdown/markdown.dir.js"></script>
     <script src="/static/modules/markdown/markdown.service.js"></script>
+    <script src="/static/modules/markdown/highlighter.dir.js"></script>
 
     <script src="/static/modules/dashboard/module.js"></script>
     <script src="/static/modules/dashboard/dashboard.ctrl.js"></script>

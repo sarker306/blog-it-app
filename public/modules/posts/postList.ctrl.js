@@ -11,7 +11,9 @@
                 });
             }
 
-            query({end: 7}).then(function (result) {
+            scope.posts = [];
+
+            query().then(function (result) {
                 scope.posts = result;
             });
 

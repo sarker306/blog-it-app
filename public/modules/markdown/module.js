@@ -1,4 +1,4 @@
 (function (ng, undefined) {
     'use strict';
-    ng.module('blog-it.markdown', ['blog-it.posts']);
+    ng.module('blog-it.markdown', ['blog-it.posts', 'ngSanitize']);
 })(angular);

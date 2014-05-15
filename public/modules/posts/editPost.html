@@ -6,11 +6,18 @@
             <label for="postTitle">Post title</label>
             <input required type="text" id="postTitle" ng-model="post.postTitle"/>
 
-            <div class="edit-post-content">
-                <button type="button" class="btn icon icon-edit" ng-click="toggleEditor()"></button>
-                <p class="placeholder" ng-hide="post.postContent">Blog post content</p>
-
-                <div ng-bind-html-unsafe="post.postContent | makeHtml"></div>
+            <div class="markdown-editor-container" ng-class="{fullScreen:isEditorOpen}">
+                <div class="markdown-editor">
+                    <div ng-if="isEditorOpen" class="editor-section editor-input">
+                        <textarea class="extensible" ng-model="post.postContent"></textarea>
+                         <pre class="markdown-highlighter" markdown-text="{{post.postContent}}">
+                            <code></code>
+                        </pre>
+                    </div>
+                    <div class="editor-preview editor-section">
+                        <div ng-click="toggleEditor()" ng-bind-html="post.postContent | makeHtml"></div>
+                    </div>
+                </div>
             </div>
             <label>Tags:</label>
 
@@ -21,4 +28,3 @@
         </div>
     </form>
 </div>
-<editor is-editor-open="isEditorOpen" section="post._id" save-markdown="saveContent(text)"></editor>

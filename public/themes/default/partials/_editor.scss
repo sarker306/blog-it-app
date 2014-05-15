@@ -1,0 +1,62 @@
+@import '../mixins/common';
+
+.markdown-editor {
+  display: flex;
+  z-index: 5;
+  align-items: stretch;
+  background: white;
+  height: 100%;
+}
+
+.fullScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 2s;
+  -webkit-transition: all 2s;
+}
+
+.editor-section {
+  flex-basis: 50%;
+  overflow-y: auto;
+  @include border-box;
+}
+
+%edit-sub-section {
+  @include border-box;
+  width: 100%;
+  min-height: 100%;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  white-space: wrap;
+  margin: 0;
+}
+
+.editor-input {
+  position: relative;
+
+  & > textarea {
+    @extend %edit-sub-section;
+    border: 0;
+    background: transparent;
+    opacity: 0.4;
+    z-index: 14;
+    color: rgba(0, 0, 0, 0.8) !important;
+    padding: 0.5em;
+    font-family: monospace, serif;
+    resize: none;
+  }
+}
+
+.markdown-highlighter {
+  @extend %edit-sub-section;
+  word-wrap: break-word;
+}
+
+.editor-preview {
+  flex-grow: 1;
+  overflow-y: auto;
+}

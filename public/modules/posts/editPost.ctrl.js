@@ -1,7 +1,7 @@
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.posts')
-        .controller('editPostCtrl', ['$scope', 'post', 'Notifier', '$location', 'Markdown', function (scope, post, notifier, location, markdown) {
+        .controller('editPostCtrl', ['$scope', 'post', 'lrNotifier', '$location', 'Markdown', function (scope, post, notifier, location, markdown) {
             var channel = notifier('global');
 
             scope.post = post;

@@ -8,6 +8,10 @@
     height: 80vh;
   }
 
+  .post-item {
+    min-height: 21%;
+  }
+
   .post h1 {
     @include nowrap;
   }
