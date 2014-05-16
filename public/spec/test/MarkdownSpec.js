@@ -168,6 +168,35 @@ describe('markdown module', function () {
 
 
     });
+
+    describe('highlighter dir', function () {
+
+        var hljsMock = {
+            highlightBlock: angular.noop
+        };
+        var element;
+
+        beforeEach(module('blog-it.markdown', function ($provide) {
+            $provide.factory('highlights', function () {
+                return hljsMock.highlightBlock;
+            });
+        }));
+
+        it('should whatch for bound value and highlight block', inject(function ($rootScope, $compile) {
+            spyOn(hljsMock, 'highlightBlock');
+            $rootScope.text = '## test';
+            element = $compile('<code markdown-text="{{text}}" class="markdown-highlighter"></code>')($rootScope);
+            $rootScope.$digest();
+            expect(element.text()).toEqual('## test');
+            expect(hljsMock.highlightBlock).toHaveBeenCalledWith(element[0]);
+            $rootScope.text = '## second test';
+            $rootScope.$digest();
+            expect(element.text()).toEqual('## second test');
+            expect(hljsMock.highlightBlock).toHaveBeenCalledWith(element[0]);
+        }));
+
+    });
+
 });
 
 

@@ -147,7 +147,7 @@ describe('posts module', function () {
                 return deferred.promise;
             };
             scope = $rootScope;
-            ctrl = $controller('editPostCtrl', {$scope: scope, post: postMock, Notifier: function () {
+            ctrl = $controller('editPostCtrl', {$scope: scope, post: postMock, lrNotifier: function () {
                 return NotifierMock;
             }, $location: locationMock, Markdown: markdownMock});
         }));
@@ -165,15 +165,6 @@ describe('posts module', function () {
             expect(scope.isEditorOpen).toBe(false);
         });
 
-        it('should update post content', function () {
-            var postContent = '## some content';
-            spyOn(NotifierMock, 'info');
-            scope.saveContent(postContent);
-            expect(scope.isEditorOpen).toBe(false);
-            expect(scope.post.postContent).toEqual(postContent);
-            expect(NotifierMock.info).toHaveBeenCalledWith('the post content has been updated');
-        });
-
         it('should save a new post', function () {
             spyOn(NotifierMock, 'success');
             spyOn(postMock, '$save').andCallThrough();
@@ -184,7 +175,7 @@ describe('posts module', function () {
             expect(postMock.$save).toHaveBeenCalled();
             scope.$apply();
             expect(NotifierMock.success).toHaveBeenCalledWith('the post has been saved successfully');
-            expect(locationMock.path).toHaveBeenCalledWith('/blog/admin');
+            expect(locationMock.path).toHaveBeenCalledWith('/dashboard');
         });
 
         it('should save an existing post', function () {
@@ -276,7 +267,7 @@ describe('posts module', function () {
         }));
 
         it('should init the scope', function () {
-            expect(scope.posts).not.toBeDefined();
+            expect(scope.posts).toEqual([]);
             scope.$apply();
             expect(scope.posts).toEqual(posts);
         });

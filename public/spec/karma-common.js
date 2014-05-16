@@ -2,7 +2,10 @@ module.exports = {
     files: [
         'lib/angular/angular.js',
         'lib/angular/angular-route.js',
+        'lib/angular/angular-animate.js',
+        'lib/angular/angular-sanitize.js',
         'lib/showdown/showdown.js',
+        'lib/highlight/highlight.pack.js',
         'spec/lib/**/*.js',
         'bower_components/**/*.js',
         'modules/**/module.js',
