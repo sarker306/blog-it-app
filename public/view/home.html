@@ -2,8 +2,8 @@
     <h1>Blog IT Blog</h1>
     <ul class="post-collection">
         <li ng-repeat="post in posts" class="post-item">
-            <article class="post">
-                <header>
+            <article class="post post-preview">
+            <header>
                     <h1>{{post.postTitle}}</h1>
 
                     <p class="metadata">
@@ -23,5 +23,5 @@
             </article>
         </li>
     </ul>
-    <span ng-click="loadMore()">more</span>
+    <a class="home-load-more" ng-click="loadMore()" lr-stop-propagation="click" href="#">+</a>
 </div>

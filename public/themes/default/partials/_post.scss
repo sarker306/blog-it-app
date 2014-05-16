@@ -1,5 +1,39 @@
+@import '../variables';
+@import '../mixins/common';
+
 .post {
   text-align: justify;
+
+  h1, h2 {
+    color: $base-color-dark;
+    padding: 0.5em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+  }
+
+  a {
+    color: $base-contrast-color;
+    @include transition;
+
+    &:hover {
+      color: $base-contrast-color-light;
+      text-shadow: 0 0 1px $base-contrast-color;
+    }
+  }
 }
 
 .post-collection {
@@ -8,16 +42,6 @@
 
 .post-item {
   padding: 1em 0;
-}
-
-.post {
-  h1 {
-    font-size: 1.3em;
-  }
-
-  h2 {
-    font-size: 1.1em;
-  }
 }
 
 .tag-collection {
@@ -31,7 +55,9 @@
 }
 
 .metadata {
-  display: inline-block;
+  padding: 0.5em;
+  background-color: $lighter-gray;
+  background: linear-gradient(to right, $lighter-gray 0%, rgba(0, 0, 0, 0) 80%);
 
   em, time {
     font-weight: bold;

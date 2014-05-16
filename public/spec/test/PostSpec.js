@@ -208,7 +208,7 @@ describe('posts module', function () {
             root = $rootScope;
             compile = $compile;
             scope.tags = [];
-            element = compile('<div lr-tags-collection="tags"/>')(scope);
+            element = compile('<div blog-it-tag-collection="tags"/>')(scope);
         }));
 
         it('should replace by the proper markup', function () {
@@ -283,6 +283,16 @@ describe('posts module', function () {
             expect(scope.posts.length).toBe(4);
             expect(postMock.find).toHaveBeenCalledWith({start: 2});
         });
+
+        it('should exec a query', function () {
+            scope.$apply();
+            spyOn(postMock, 'find').andCallThrough();
+            scope.query({prop: 'value'});
+            expect(scope.isLoading).toBe(true);
+            scope.$apply();
+            expect(scope.isLoading).toBe(false);
+            expect(postMock.find).toHaveBeenCalledWith({prop: 'value'});
+        })
     });
 });
 

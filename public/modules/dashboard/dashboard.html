@@ -1,6 +1,7 @@
 <div class="dashboard-container">
-    <div class=" side-panel" ng-controller="postListCtrl">
-        <ul class="post-collection">
+    <div class=" side-panel">
+        <a href="/posts/create/new">New</a>
+        <ul class="post-collection" lr-infinite-scroll="loadMore">
             <li class="post-item" ng-repeat="post in posts" ng-click="selectPost(post)">
                 <article class="post">
                     <h1>
@@ -8,10 +9,19 @@
                     </h1>
 
                     <div class="post-preview" markdown-content="post._id" markdown-selector="p"></div>
+                    <aside>
+                        <ul>
+                            <li>
+                                <a ng-href="/posts/edit/{{post._id}}">Edit</a>
+                            </li>
+                            <li>
+                                <a ng-href="#" lr-stop-propagation="click" ng-click="removePost(post)">Remove</a>
+                            </li>
+                        </ul>
+                    </aside>
                 </article>
             </li>
         </ul>
-        <span ng-click="loadMore()">more</span>
     </div>
     <section class="main-content">
         <div ng-if="!selectedPost">
@@ -35,6 +45,8 @@
                     <li class="tag-item" ng-repeat="tag in selectedPost.tags">{{tag}}</li>
                 </ul>
             </header>
+            <a ng-href="/posts/edit/{{selectedPost._id}}">Edit</a>
+
             <div markdown-content="selectedPost._id"></div>
         </article>
     </section>

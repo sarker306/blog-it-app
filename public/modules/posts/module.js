@@ -32,7 +32,7 @@
                 }
             });
 
-            routeProvider.when('/posts/new', {
+            routeProvider.when('/posts/create/new', {
                 controller: 'editPostCtrl',
                 templateUrl: '/static/modules/posts/editPost.html',
                 resolve: {

@@ -1,8 +1,13 @@
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.main')
-        .controller('mainCtrl', ['$rootScope', '$location', function (scope, location) {
+        .controller('mainCtrl', ['$rootScope', '$location', 'Post', function (scope, location, post) {
+
             scope.name = 'Blog IT';
+
+            post.tagList().then(function (tags) {
+                scope.tags = tags;
+            });
 
             scope.$on('$routeChangeError', function (event, current, previous, rejection) {
 

@@ -9,6 +9,8 @@
 
 body {
   font-size: 100%;
+  color: $darker-gray;
+  font-family: 'Ruluko', sans-serif;
 }
 
 ul, ol {
@@ -16,10 +18,20 @@ ul, ol {
 }
 
 footer {
-  padding: 0 2em;
+  text-align: center;
+  background: $dark-gray;
+  box-shadow: inset 0 0.5em 25px 1px $darker-gray;
+  color: $lighter-gray;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+a {
+  color: inherit;
 }
 
 .main-view {
+  display: flex;
   padding: 0.5em;
   -webkit-transform-origin: 50% 0;
 }
@@ -43,5 +55,10 @@ footer {
 
 .main-view.ng-leave-active {
   opacity: 0;
+}
+
+.btn {
+  border-radius: 3px;
+  border-width: 2px;
 }
 

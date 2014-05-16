@@ -17,5 +17,18 @@
             routeProvider.otherwise({redirect: '/'});
             locationProvider.html5Mode(true);
             resourceProvider.setDefaultConfig({baseUrl: baseUrl})
-        }]);
+        }])
+        .directive('lrStopPropagation', function () {
+            return {
+                link: function (scope, element, attr) {
+                    var event = attr.lrStopPropagation;
+                    if (event) {
+                        element.bind(event, function (e) {
+                            e.stopPropagation();
+                            e.preventDefault();
+                        });
+                    }
+                }
+            }
+        });
 })(angular);

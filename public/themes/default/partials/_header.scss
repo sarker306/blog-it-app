@@ -1,10 +1,22 @@
+@import '../variables';
+@import '../mixins/common';
+
 .main-header {
 
   text-align: right;
+  background: $base-color;
+  color: $lighter-gray;
 
   li {
     display: inline;
     padding: 1em;
+    @include transition(all, 0.5s);
+    cursor: pointer;
+
+    &:hover {
+      background: $base-color-light;
+      color: white;
+    }
   }
 
 }

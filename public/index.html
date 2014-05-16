@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css'>
     <script src="/static/lib/angular/angular.js"></script>
     <script src="/static/lib/angular/angular-route.js"></script>
     <script src="/static/lib/angular/angular-sanitize.js"></script>
@@ -55,6 +57,9 @@
     <title>Blog-it Home Page</title>
 </head>
 <body ng-controller="mainCtrl">
+<dataList id="tags">
+    <option ng-repeat="tag in tags" value="{{ tag }}"></option>
+</dataList>
 <header class="main-header">
     <nav class="main-navigation">
         <ul>

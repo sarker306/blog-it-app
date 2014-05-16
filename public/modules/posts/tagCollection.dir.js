@@ -1,12 +1,12 @@
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.posts')
-        .directive('lrTagsCollection', [function () {
+        .directive('blogItTagCollection', [function () {
             return {
                 restrict: 'EA',
                 replace: true,
                 scope: {
-                    tags: '=lrTagsCollection'
+                    tags: '=blogItTagCollection'
                 },
                 template: '<div><ul class="tag-list">' +
                     '<li class="tag-item" ng-repeat="tag in tags">{{ tag }}<button ng-click="removeElement(tag)" class="icon btn very-small icon-close"></button></li>' +
