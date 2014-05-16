@@ -1,4 +1,5 @@
 @import './_variables';
+@import './mixins/common';
 @import './partials/_moderniz';
 @import './partials/_header';
 @import './partials/_home';
@@ -18,7 +19,29 @@ footer {
   padding: 0 2em;
 }
 
-div[ng-view] {
-  padding: 1em;
+.main-view {
+  padding: 0.5em;
+  -webkit-transform-origin: 50% 0;
+}
+
+.main-view.ng-enter {
+  @include transition(opacity, 0.5s, ease-in-out, 0.8s);
+}
+
+.main-view.ng-enter {
+  opacity: 0;
+}
+
+.main-view.ng-enter-active {
+  opacity: 1;
+}
+
+.main-view.ng-leave {
+  @include transition(opacity, 0.5s, ease-in-out);
+  opacity: 1;
+}
+
+.main-view.ng-leave-active {
+  opacity: 0;
 }
 

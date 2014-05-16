@@ -9,3 +9,16 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+
+@mixin transition($property: all, $duration: 0.5s, $function: ease, $delay: 0) {
+  -webkit-transition: $property $duration $function $delay;
+  -moz-transition: $property $duration $function $delay;
+  -o-transition: $property $duration $function $delay;
+  transition: $property $duration $function $delay;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  transform: $value;
+}

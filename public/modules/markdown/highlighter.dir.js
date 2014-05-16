@@ -37,7 +37,7 @@
                         }
                     }
 
-                    timeout(increaseSize, 0);
+                    timeout(increaseSize, 100);
 
                     element.bind('input', increaseSize);
                 }

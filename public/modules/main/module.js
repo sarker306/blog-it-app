@@ -3,10 +3,12 @@
     var baseUrl = '/api/';
     ng.module('blog-it.main', [
         'ngRoute',
+        'ngAnimate',
         'blog-it.resource',
         'blog-it.posts',
         'blog-it.markdown',
-        'blog-it.dashboard'
+        'blog-it.dashboard',
+        'lrInfiniteScroll'
     ])
         .constant('baseUrl', baseUrl)
         .config(['CRUDResourceProvider', '$routeProvider', '$locationProvider', function (resourceProvider, routeProvider, locationProvider) {

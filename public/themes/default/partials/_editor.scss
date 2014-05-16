@@ -14,14 +14,22 @@
   left: 0;
   right: 0;
   bottom: 0;
-  transition: all 2s;
-  -webkit-transition: all 2s;
 }
 
 .editor-section {
   flex-basis: 50%;
   overflow-y: auto;
   @include border-box;
+}
+
+.editor-input.ng-enter {
+  width: 0;
+  transition: all 1s ease 1s;
+  -webkit-transition: all 1s ease 1s;
+}
+
+.editor-input.ng-enter-active {
+  width: 100%;
 }
 
 %edit-sub-section {
