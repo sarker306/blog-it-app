@@ -22,3 +22,20 @@
   -moz-transform: $value;
   transform: $value;
 }
+
+%opacity-animation.ng-enter {
+  @include transition(opacity, 1s);
+  opacity: 0;
+}
+
+%opacity-animation.ng-enter-active {
+  opacity: 1;
+}
+
+%opacity-animation.ng-leave {
+  opacity: 1;
+}
+
+%opacity-animation.ng-leave-active {
+  opacity: 0;
+}

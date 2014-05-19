@@ -3,21 +3,29 @@
 
 .post {
   text-align: justify;
+  padding: 0.6em;
+
+  header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+  }
 
   h1, h2 {
     color: $base-color-dark;
     padding: 0.5em;
+    @include nowrap;
   }
 
   h1 {
+    flex-basis: 100%;
     font-size: 1.5em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
-  h2 {
+  h2, h3, h4 {
     font-size: 1.2em;
+    border-bottom: 1px solid $base-color-light;
   }
 
   img {
@@ -37,24 +45,42 @@
 }
 
 .post-collection {
-  padding: 1em;
+  padding: 0;
 }
 
 .post-item {
+  @extend %opacity-animation;
   padding: 1em 0;
 }
 
 .tag-collection {
-  float: right;
-  margin: 1em 0;
+  padding: 0.5em;
+  margin: 0;
 }
 
 .tag-item {
+  font-size: 0.9em;
   display: inline;
-  padding: 0 1em;
+  background: $base-color;
+  border-color: transparent $base-color-dark $base-color-dark transparent;
+  & > a {
+    color: $lighter-gray;
+    text-decoration: none;
+    &:hover {
+      color: white;
+    }
+  }
+
+  &:hover {
+    background: $base-color-light;
+  }
 }
 
 .metadata {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   padding: 0.5em;
   background-color: $lighter-gray;
   background: linear-gradient(to right, $lighter-gray 0%, rgba(0, 0, 0, 0) 80%);

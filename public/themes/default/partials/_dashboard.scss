@@ -1,20 +1,79 @@
 @import '../mixins/common';
+@import '../variables';
 
 .dashboard-container {
   display: flex;
 
   .post-collection {
     overflow-y: auto;
+    padding: 0.3em;
     height: 80vh;
   }
 
-  .post-item {
-    min-height: 21%;
+  .post {
+
+    h1 {
+      @include nowrap;
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &:hover .tool-collection {
+      left: 0;
+    }
   }
 
-  .post h1 {
-    @include nowrap;
+  .post-item {
+    @include border-box;
+    min-height: 21%;
+    &:not(:first-child) {
+      border-top: 1px solid $base-color;
+    }
   }
+}
+
+.tool-collection {
+  @include transition;
+  position: absolute;
+  left: -200%;
+  padding: 1em;
+}
+
+.tool-item {
+  display: inline;
+  margin: 0 0.2em;
+  background: $base-color;
+  border-color: transparent $base-color-dark $base-color-dark transparent;
+
+  @include transition;
+  &:hover {
+    background: $base-color-light;
+  }
+
+  & > a {
+    padding: 0.4em;
+    text-decoration: none;
+    color: $lighter-gray !important;
+  }
+}
+
+.post-preview-tools {
+  min-height: 2em;
+}
+
+.dashboard-intro {
+  padding: 1em;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 5em 2em;
+  display: inline-block;
+  width: 80%;
+  text-align: justify;
+  background: $light-gray;
 }
 
 .post-preview {

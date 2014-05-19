@@ -1,6 +1,6 @@
 (function (ng, undefined) {
     'use strict';
-    ng.module('blog-it.posts', ['blog-it.resource', 'ngRoute'])
+    ng.module('blog-it.posts', ['blog-it.resource', 'ngRoute', 'lrNotifier'])
         .config(['$routeProvider', function (routeProvider) {
 
             function findPost(route, post) {

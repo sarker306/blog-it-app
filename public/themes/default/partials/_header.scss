@@ -6,6 +6,7 @@
   text-align: right;
   background: $base-color;
   color: $lighter-gray;
+  border-bottom: 2px solid $base-color-dark;
 
   li {
     display: inline;

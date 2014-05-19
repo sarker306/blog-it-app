@@ -62,12 +62,15 @@
 </dataList>
 <header class="main-header">
     <nav class="main-navigation">
-        <ul>
-            <li><a href="/">Blog</a></li>
+        <ul class="no-style-list">
+        <li><a href="/">Blog</a></li>
             <li><a href="/about">About</a></li>
         </ul>
     </nav>
 </header>
+<div lr-notification-stack-container="global">
+    <p>{{ notification.message }}</p>
+</div>
 <div class="main-view" ng-view>
 </div>
 <footer>

@@ -3,13 +3,13 @@
         <h1>{{post.postTitle}}</h1>
 
         <p class="metadata">
-        published by <em>{{post.author}}</em> on
+            published by <em>{{post.author}}</em> on
             <time itemprop="dateCreated" datetime="{{post.createdAt | date:'yyyy-MM-dd'}}">{{post.createdAt |
                 date}}
             </time>
         </p>
         <ul class="tag-collection">
-            <li class="tag-item" ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
+            <li class="tag-item btn" ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
         </ul>
     </header>
     <div markdown-content="post._id"></div>

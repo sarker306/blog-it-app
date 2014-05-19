@@ -1,0 +1,33 @@
+@import '../mixins/common';
+@import "../variables";
+
+div[lr-notification-stack-container="global"] {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  & > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.notification-item {
+  @extend %opacity-animation;
+  text-align: center;
+  padding: 0.7em;
+  color: $lighter-gray;
+}
+
+.success {
+  background: rgb(0, 128, 92);
+}
+
+.error {
+  background: rgb(255, 41, 0);
+}
+
+.info {
+  background: $darker-gray;
+}

@@ -1,0 +1,31 @@
+@import '../variables';
+@import '../mixins/common';
+
+.blog-container {
+  & > h1 {
+    text-align: center;
+  }
+
+  .post-item:not(:first-child) {
+    border-top: 2px solid $base-color;
+  }
+}
+
+.blog-load-more {
+
+  color: $lighter-gray;
+  background: $base-gray;
+  border-color: transparent $dark-gray $dark-gray transparent;
+  padding: 1em;
+  @include transition;
+  text-decoration: none;
+
+  &:hover {
+    background: $base-contrast-color;
+    color: white;
+  }
+}
+
+.blog-load-more-container {
+  text-align: center;
+}

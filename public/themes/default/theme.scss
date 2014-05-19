@@ -2,10 +2,11 @@
 @import './mixins/common';
 @import './partials/_moderniz';
 @import './partials/_header';
-@import './partials/_home';
+@import './partials/_blog';
 @import './partials/_post';
 @import './partials/_dashboard';
 @import './partials/_editor';
+@import "./partials/notification";
 
 body {
   font-size: 100%;
@@ -13,15 +14,12 @@ body {
   font-family: 'Ruluko', sans-serif;
 }
 
-ul, ol {
-  list-style: none;
-}
-
 footer {
   text-align: center;
   background: $dark-gray;
   box-shadow: inset 0 0.5em 25px 1px $darker-gray;
   color: $lighter-gray;
+  font-size: 0.8em;
   padding: 1em;
   margin-top: 1em;
 }
@@ -32,33 +30,21 @@ a {
 
 .main-view {
   display: flex;
+  @extend %opacity-animation;
   padding: 0.5em;
   -webkit-transform-origin: 50% 0;
-}
-
-.main-view.ng-enter {
-  @include transition(opacity, 0.5s, ease-in-out, 0.8s);
-}
-
-.main-view.ng-enter {
-  opacity: 0;
-}
-
-.main-view.ng-enter-active {
-  opacity: 1;
-}
-
-.main-view.ng-leave {
-  @include transition(opacity, 0.5s, ease-in-out);
-  opacity: 1;
-}
-
-.main-view.ng-leave-active {
-  opacity: 0;
 }
 
 .btn {
   border-radius: 3px;
   border-width: 2px;
+  padding: 0.4em;
+  border-style: solid;
 }
+
+.no-style-list {
+  list-style: none;
+}
+
+
 

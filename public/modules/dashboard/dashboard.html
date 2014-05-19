@@ -9,13 +9,13 @@
                     </h1>
 
                     <div class="post-preview" markdown-content="post._id" markdown-selector="p"></div>
-                    <aside>
-                        <ul>
-                            <li>
-                                <a ng-href="/posts/edit/{{post._id}}">Edit</a>
+                    <aside class="post-preview-tools">
+                        <ul class="no-style-list tool-collection">
+                            <li class="btn tool-item">
+                                <a ng-href="/posts/edit/{{post._id}}">E</a>
                             </li>
-                            <li>
-                                <a ng-href="#" lr-stop-propagation="click" ng-click="removePost(post)">Remove</a>
+                            <li class=" btn tool-item">
+                                <a ng-href="#" lr-stop-propagation="click" ng-click="removePost(post)">R</a>
                             </li>
                         </ul>
                     </aside>
@@ -24,18 +24,18 @@
         </ul>
     </div>
     <section class="main-content">
-        <div ng-if="!selectedPost">
+        <div class="dashboard-intro" ng-if="!selectedPost">
             <p>Here is your dashboard. You'll be able to find the list of published and draft posts. A preview as they
                 will
                 be published is available, so is a set of tools which will allow you to create/edit/publish/delete your
-                posts </p>
+                posts.</p>
         </div>
         <article class="post" ng-if="selectedPost">
             <header>
                 <h1>{{selectedPost.postTitle}}</h1>
 
-                <p>
-                    published by <em>{{selectedPost.author}}</em> on
+                <p class="metadata">
+                published by <em>{{selectedPost.author}}</em> on
                     <time itemprop="dateCreated" datetime="{{selectedPost.createdAt | date:'yyyy-MM-dd'}}">
                         {{selectedPost.createdAt |
                         date}}
