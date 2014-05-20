@@ -107,11 +107,11 @@
 .loading-indicator {
 
   @include border-box;
+
   width: 100%;
   position: absolute;
   bottom: 0;
   text-align: center;
-  @extend %opacity-animation;
   padding: 0.7em;
   background: $dark-gray;
 

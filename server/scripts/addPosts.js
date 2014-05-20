@@ -20,10 +20,10 @@ MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, functio
     };
 
     function guidGenerator() {
-        var S4 = function () {
+        var s4 = function () {
             return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
         };
-        return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+        return (s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4());
     }
 
     function createPost() {
@@ -55,7 +55,7 @@ MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, functio
     }
 
     for (i = 0; i < number; i++) {
-        Post.insert(createPost()).then(function () {
+        setInterval(Post.insert(createPost()).then(function () {
             remaining -= 1;
             if (remaining === 0) {
                 console.log(number + ' post inserted successfully');
@@ -64,7 +64,7 @@ MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, functio
         }, function (err) {
             console.error('error while inserting post: ' + err);
             db.close();
-        });
+        }), 1000);
     }
 });
 

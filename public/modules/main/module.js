@@ -12,8 +12,8 @@
     ])
         .constant('baseUrl', baseUrl)
         .config(['CRUDResourceProvider', '$routeProvider', '$locationProvider', function (resourceProvider, routeProvider, locationProvider) {
-            routeProvider.when('/', {templateUrl: '/static/view/blog.html', controller: 'postListCtrl'});
-            routeProvider.when('/about', {templateUrl: '/static/view/about.html'});
+            routeProvider.when('/', {templateUrl: '/static/themes/default/view/blog.html', controller: 'postListCtrl'});
+            routeProvider.when('/about', {templateUrl: '/static/themes/default/view/about.html'});
             routeProvider.otherwise({redirect: '/'});
             locationProvider.html5Mode(true);
             resourceProvider.setDefaultConfig({baseUrl: baseUrl})

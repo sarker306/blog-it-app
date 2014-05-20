@@ -1,5 +1,4 @@
-<div class="post edit-post">
-    <h1>New post</h1>
+<div class="edit-post">
 
     <form ng-submit="savePost()">
         <div class="post-edit-zone">
@@ -14,7 +13,7 @@
                             <code></code>
                         </pre>
                     </div>
-                    <div class="editor-preview editor-section">
+                    <div class="editor-preview post editor-section">
                         <div ng-click="toggleEditor()" ng-bind-html="post.postContent | makeHtml"></div>
                     </div>
                 </div>
