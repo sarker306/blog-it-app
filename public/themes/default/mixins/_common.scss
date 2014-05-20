@@ -11,16 +11,35 @@
 }
 
 @mixin transition($property: all, $duration: 0.5s, $function: ease, $delay: 0) {
+  transition: $property $duration $function $delay;
   -webkit-transition: $property $duration $function $delay;
   -moz-transition: $property $duration $function $delay;
   -o-transition: $property $duration $function $delay;
-  transition: $property $duration $function $delay;
 }
 
 @mixin transform($value) {
   -webkit-transform: $value;
   -moz-transform: $value;
   transform: $value;
+}
+
+@mixin animation($name, $time: 1s, $function: ease, $repeat: infinite) {
+  -webkit-animation: $name $time $function $repeat;
+  -moz-animation: $name $time $function $repeat;
+  -o-animation: $name $time $function $repeat;
+  animation: $name $time $function $repeat;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+  @keyframes $animation-name {
+    @content;
+  }
 }
 
 %opacity-animation.ng-enter {

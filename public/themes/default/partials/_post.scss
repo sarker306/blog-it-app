@@ -28,9 +28,10 @@
     border-bottom: 1px solid $base-color-light;
   }
 
-  img {
+  img, iframe, figure, pre, video {
     display: block;
     margin: auto;
+    max-width: 90%;
   }
 
   a {
@@ -63,6 +64,7 @@
   display: inline;
   background: $base-color;
   border-color: transparent $base-color-dark $base-color-dark transparent;
+  margin: 0.3em;
   & > a {
     color: $lighter-gray;
     text-decoration: none;
@@ -93,3 +95,5 @@
 .post-content {
   clear: both;
 }
+
+

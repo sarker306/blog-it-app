@@ -1,9 +1,7 @@
 @import '../mixins/common';
 @import "../variables";
 
-div[lr-notification-stack-container="global"] {
-  position: fixed;
-  top: 0;
+.notification-container {
   width: 100%;
   z-index: 999;
   & > ul {
@@ -11,6 +9,18 @@ div[lr-notification-stack-container="global"] {
     margin: 0;
     padding: 0;
   }
+}
+
+div[lr-notification-stack-container="global"] {
+  @extend .notification-container;
+  position: fixed;
+  top: 0;
+
+}
+
+div[lr-notification-stack-container="dashboard"] {
+  @extend .notification-container;
+  position: absolute;
 }
 
 .notification-item {

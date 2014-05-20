@@ -1,20 +1,20 @@
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
 }
 
@@ -396,23 +396,23 @@ table {
     border-spacing: 0;
 }
 
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
 }
 
@@ -426,10 +426,10 @@ table {
 .main-header li {
     display: inline;
     padding: 1em;
+    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
-    transition: all 0.5s ease 0;
     cursor: pointer;
 }
 
@@ -443,23 +443,23 @@ table {
     display: inline-block;
 }
 
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
 }
 
@@ -476,10 +476,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 1em;
+    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
-    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -492,23 +492,23 @@ table {
     text-align: center;
 }
 
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
 }
 
@@ -542,17 +542,18 @@ table {
     border-bottom: 1px solid #1694dd;
 }
 
-.post img {
+.post img, .post iframe, .post figure, .post pre, .post video {
     display: block;
     margin: auto;
+    max-width: 90%;
 }
 
 .post a {
     color: #e08515;
+    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
-    transition: all 0.5s ease 0;
 }
 
 .post a:hover {
@@ -578,6 +579,7 @@ table {
     display: inline;
     background: #166aae;
     border-color: transparent #154e80 #154e80 transparent;
+    margin: 0.3em;
 }
 
 .tag-item > a {
@@ -611,23 +613,23 @@ table {
     clear: both;
 }
 
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
 }
 
@@ -669,10 +671,10 @@ table {
 }
 
 .tool-collection {
+    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
-    transition: all 0.5s ease 0;
     position: absolute;
     left: -200%;
     padding: 1em;
@@ -683,10 +685,10 @@ table {
     margin: 0 0.2em;
     background: #166aae;
     border-color: transparent #154e80 #154e80 transparent;
+    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
-    transition: all 0.5s ease 0;
 }
 
 .tool-item:hover {
@@ -701,6 +703,7 @@ table {
 
 .post-preview-tools {
     min-height: 2em;
+    position: relative;
 }
 
 .dashboard-intro {
@@ -723,29 +726,95 @@ table {
 .side-panel {
     width: 20%;
     flex-shrink: 0;
+    position: relative;
 }
 
 .main-content {
     flex-grow: 1;
 }
 
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.selected-post {
+    transition: all 0.5s ease 0;
+    -webkit-transition: all 0.5s ease 0;
+    -moz-transition: all 0.5s ease 0;
+    -o-transition: all 0.5s ease 0;
+    border-left: 5px solid #e08515;
+}
+
+.post-collection-container {
+    position: relative;
+}
+
+.loading-indicator {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 0.7em;
+    background: #3c3c3c;
+}
+
+.loading-indicator:before {
+    display: inline-block;
+    margin: 0 0.4em;
+    min-width: 1em;
+    min-height: 1em;
+    border-top: 4px solid #646464;
+    border-right: 4px solid #e6e6e6;
+    border-left: 4px solid #e6e6e6;
+    border-bottom: 4px solid #646464;
+    content: "";
+    -webkit-animation: halfspin 1s ease infinite;
+    -moz-animation: halfspin 1s ease infinite;
+    -o-animation: halfspin 1s ease infinite;
+    animation: halfspin 1s ease infinite;
+    border-radius: 100%;
+}
+
+@-webkit-keyframes halfspin {
+    to {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@-moz-keyframes halfspin {
+    to {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes halfspin {
+    to {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
 }
 
@@ -820,37 +889,44 @@ table {
     overflow-y: auto;
 }
 
-.ng-enter.post-item, .ng-enter.notification-item, .ng-enter.main-view {
+.ng-enter.post-item, .ng-enter.loading-indicator, .ng-enter.notification-item, .ng-enter.main-view {
+    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
-    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
-.ng-enter-active.post-item, .ng-enter-active.notification-item, .ng-enter-active.main-view {
+.ng-enter-active.post-item, .ng-enter-active.loading-indicator, .ng-enter-active.notification-item, .ng-enter-active.main-view {
     opacity: 1;
 }
 
-.ng-leave.post-item, .ng-leave.notification-item, .ng-leave.main-view {
+.ng-leave.post-item, .ng-leave.loading-indicator, .ng-leave.notification-item, .ng-leave.main-view {
     opacity: 1;
 }
 
-.ng-leave-active.post-item, .ng-leave-active.notification-item, .ng-leave-active.main-view {
+.ng-leave-active.post-item, .ng-leave-active.loading-indicator, .ng-leave-active.notification-item, .ng-leave-active.main-view {
     opacity: 0;
+}
+
+.notification-container, div[lr-notification-stack-container="global"], div[lr-notification-stack-container="dashboard"] {
+    width: 100%;
+    z-index: 999;
+}
+
+.notification-container > ul, div[lr-notification-stack-container="global"] > ul, div[lr-notification-stack-container="dashboard"] > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 div[lr-notification-stack-container="global"] {
     position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 999;
 }
 
-div[lr-notification-stack-container="global"] > ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+div[lr-notification-stack-container="dashboard"] {
+    position: absolute;
 }
 
 .notification-item {
@@ -875,6 +951,10 @@ body {
     font-size: 100%;
     color: #1e1e1e;
     font-family: "Ruluko", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 footer {
@@ -885,6 +965,7 @@ footer {
     font-size: 0.8em;
     padding: 1em;
     margin-top: 1em;
+    min-height: 10vh;
 }
 
 a {
@@ -892,6 +973,7 @@ a {
 }
 
 .main-view {
+    flex-grow: 1;
     display: flex;
     padding: 0.5em;
     -webkit-transform-origin: 50% 0;

@@ -12,6 +12,10 @@ body {
   font-size: 100%;
   color: $darker-gray;
   font-family: 'Ruluko', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 footer {
@@ -22,6 +26,7 @@ footer {
   font-size: 0.8em;
   padding: 1em;
   margin-top: 1em;
+  min-height: 10vh;
 }
 
 a {
@@ -29,6 +34,7 @@ a {
 }
 
 .main-view {
+  flex-grow: 1;
   display: flex;
   @extend %opacity-animation;
   padding: 0.5em;
