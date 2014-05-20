@@ -1,4 +1,4 @@
-./idea
+./.idea
 ./public/coverage
 ./dist
 ./public/node_modules
