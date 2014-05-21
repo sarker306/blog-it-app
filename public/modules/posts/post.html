@@ -8,8 +8,8 @@
                 date}}
             </time>
         </p>
-        <ul class="tag-collection">
-            <li class="tag-item btn" ng-repeat="tag in post.tags"><a href="#">{{tag}}</a></li>
+        <ul class="tag-collection small icon-tag">
+            <li class="tag-item btn" ng-repeat="tag in post.tags track by $index"><a href="#">{{tag}}</a></li>
         </ul>
     </header>
     <div markdown-content="post._id"></div>

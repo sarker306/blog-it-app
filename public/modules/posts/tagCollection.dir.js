@@ -8,8 +8,8 @@
                 scope: {
                     tags: '=blogItTagCollection'
                 },
-                template: '<div><ul class="tag-list">' +
-                    '<li class="tag-item" ng-repeat="tag in tags">{{ tag }}<button ng-click="removeElement(tag)" class="icon btn very-small icon-close"></button></li>' +
+                template: '<div><ul class="tag-collection">' +
+                    '<li class="tag-item btn" ng-repeat="tag in tags track by $index">{{ tag }}<button type="button" ng-click="removeElement(tag)" class="icon btn icon-close"></button></li>' +
                     '</ul><input list="tags" ng-model="current"/>' +
                     '</div>',
                 link: function (scope, element, attr) {

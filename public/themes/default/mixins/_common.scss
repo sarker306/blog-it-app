@@ -30,6 +30,12 @@
   animation: $name $time $function $repeat;
 }
 
+@mixin box-shadow($blur, $color, $inset: null, $offsetLeft: 0, $offsetTop: 0, $width: 0) {
+  -webkit-box-shadow: $inset $offsetLeft $offsetTop $blur $width $color;
+  -moz-box-shadow: $inset $offsetLeft $offsetTop $blur $width $color;
+  box-shadow: $inset $offsetLeft $offsetTop $blur $width $color;
+}
+
 @mixin keyframes($animation-name) {
   @-webkit-keyframes $animation-name {
     @content;
@@ -57,4 +63,19 @@
 
 %opacity-animation.ng-leave-active {
   opacity: 0;
+}
+
+%submit-btn {
+  color: $lighter-gray;
+  background: $base-gray;
+  border-color: transparent $dark-gray $dark-gray transparent;
+  padding: 0.6em;
+  @include transition;
+  text-decoration: none;
+
+  &:hover {
+    background: $base-contrast-color-light;
+    border-color: transparent $base-contrast-color $base-contrast-color transparent;
+    color: white;
+  }
 }

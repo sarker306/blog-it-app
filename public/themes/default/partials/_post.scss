@@ -60,8 +60,7 @@
 }
 
 .tag-item {
-  font-size: 0.9em;
-  display: inline;
+  display: inline-block;
   background: $base-color;
   border-color: transparent $base-color-dark $base-color-dark transparent;
   margin: 0.3em;
@@ -78,8 +77,30 @@
   }
 }
 
+.edit {
+
+  color: $lighter-gray;
+  .tag-item:hover {
+    background: $base-color;
+  }
+
+  .tag-item > .btn {
+    margin: 0 0.4em;
+    background: $base-contrast-color;
+    border-width: 0;
+    color: $lighter-gray;
+
+    &:hover {
+      background: $base-contrast-color-light;
+      color: white;
+    }
+  }
+
+}
+
 .metadata {
   margin: 0;
+  display: inline-table;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -94,6 +115,10 @@
 
 .post-content {
   clear: both;
+}
+
+.edit-post {
+  width: 100%;
 }
 
 

@@ -32,6 +32,7 @@
     <script src="/static/modules/posts/post.service.js"></script>
     <script src="/static/modules/posts/postList.ctrl.js"></script>
     <script src="/static/modules/posts/tagCollection.dir.js"></script>
+    <script src="/static/modules/posts/post.dir.js"></script>
 
     <script src="/static/modules/resource/module.js"></script>
     <script src="/static/modules/resource/CRUDResource.provider.js"></script>
@@ -73,12 +74,16 @@
 </div>
 <div class="main-view" ng-view>
 </div>
-<footer>
+<footer class="small">
     <p>powered by <a href="#">Blog IT</a></p>
     <address>maintained by <a href="http://github.com/lorenzofox3/">lorenzofox3</a>
 
         <p>
-            Contact by <a class="email" href="mailto:laurent34azerty@gmail.com">mail</a>
+            <a class="email icon-mail very-big" href="mailto:laurent34azerty@gmail.com"></a>
+        </p>
+
+        <p>
+            <a class="icon-github very-big" href="https://github.com/blog-it/blog-it-app"></a>
         </p>
     </address>
 </footer>

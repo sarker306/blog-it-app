@@ -38,7 +38,7 @@
                 resolve: {
                     post: ['$q', 'Post', 'Security', function ($q, Post, Security) {
                         return Security.getCurrentUser().then(function () {
-                            return Security.isAdmin() === true ? $q.when(new Post()) : $q.reject('admin rights are required');
+                            return Security.isAdmin() === true ? $q.when(new Post({postContent: '## This is a new post!\n\n click on the edit button to toggle the editor and start to fill this new post'})) : $q.reject('admin rights are required');
                         });
                     }]
                 }

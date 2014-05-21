@@ -6,7 +6,85 @@
 @import './partials/_post';
 @import './partials/_dashboard';
 @import './partials/_editor';
-@import "./partials/notification";
+@import './partials/notification';
+@import './partials/login';
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot');
+  src: url('fonts/icomoon.eot') format('embedded-opentype'),
+  url('fonts/icomoon.woff') format('woff'),
+  url('fonts/icomoon.ttf') format('truetype'),
+  url('fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e60a";
+}
+
+.icon-pencil:before {
+  content: "\e604";
+}
+
+.icon-image:before {
+  content: "\e603";
+}
+
+.icon-tag:before {
+  content: "\e608";
+}
+
+.icon-disk:before {
+  content: "\e60b";
+}
+
+.icon-bubbles:before {
+  content: "\e60c";
+}
+
+.icon-expand:before {
+  content: "\e606";
+}
+
+.icon-contract:before {
+  content: "\e605";
+}
+
+.icon-cog:before {
+  content: "\e607";
+}
+
+.icon-close:before {
+  content: "\e601";
+}
+
+.icon-plus:before {
+  content: "\e609";
+}
+
+.icon-mail:before {
+  content: "\e600";
+}
+
+.icon-github:before {
+  content: "\e602";
+}
 
 body {
   font-size: 100%;
@@ -22,15 +100,58 @@ footer {
   text-align: center;
   background: $dark-gray;
   box-shadow: inset 0 0.5em 25px 1px $darker-gray;
-  color: $lighter-gray;
-  font-size: 0.8em;
+  color: $light-gray;
   padding: 1em;
   margin-top: 1em;
   min-height: 10vh;
+
+  p {
+    margin: 0.5em 0;
+  }
+
+  & a {
+    text-decoration: none;
+    color: $lighter-gray;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 a {
   color: inherit;
+}
+
+input, label {
+  padding: 0.4em;
+  margin: 0.4em 0;
+  display: block;
+}
+
+input:not([type="submit"]), label {
+  width: 70%;
+}
+
+input:not([type="submit"]) {
+  border: 1px solid $base-color;
+}
+
+input[type="submit"] {
+  @extend %submit-btn;
+  margin: auto;
+  margin-top: 2em;
+}
+
+input:focus, textarea:focus {
+  color: $base-contrast-color;
+  border-color: $base-contrast-color !important;
+  @include box-shadow(0.4em, $base-contrast-color);
+  @include transition;
+}
+
+input, label, textarea, button {
+  outline-style: none;
 }
 
 .main-view {
@@ -44,13 +165,30 @@ a {
 .btn {
   border-radius: 3px;
   border-width: 2px;
-  padding: 0.4em;
+  padding: 0.3em;
   border-style: solid;
 }
 
 .no-style-list {
   list-style: none;
 }
+
+.small {
+  font-size: 0.9em;
+}
+
+.big {
+  font-size: 1.1em;
+}
+
+.very-small {
+  font-size: 0.8em;
+}
+
+.very-big {
+  font-size: 1.2em;
+}
+
 
 
 

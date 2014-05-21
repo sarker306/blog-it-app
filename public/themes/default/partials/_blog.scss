@@ -13,16 +13,12 @@
 
 .blog-load-more {
 
-  color: $lighter-gray;
-  background: $base-gray;
-  border-color: transparent $dark-gray $dark-gray transparent;
-  padding: 1em;
-  @include transition;
-  text-decoration: none;
+  @extend %submit-btn;
 
-  &:hover {
-    background: $base-contrast-color;
-    color: white;
+  & > span {
+    margin-left: 0.5em;
+    font-weight: bold;
+    padding: 0.5em;
   }
 }
 
