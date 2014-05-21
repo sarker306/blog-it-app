@@ -11,10 +11,10 @@
 }
 
 @mixin transition($property: all, $duration: 0.5s, $function: ease, $delay: 0) {
-  transition: $property $duration $function $delay;
   -webkit-transition: $property $duration $function $delay;
   -moz-transition: $property $duration $function $delay;
   -o-transition: $property $duration $function $delay;
+  transition: $property $duration $function $delay;
 }
 
 @mixin transform($value) {

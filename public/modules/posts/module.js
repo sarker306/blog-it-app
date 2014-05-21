@@ -1,6 +1,6 @@
 (function (ng, undefined) {
     'use strict';
-    ng.module('blog-it.posts', ['blog-it.resource', 'ngRoute', 'lrNotifier'])
+    ng.module('blog-it.posts', ['blog-it.resource', 'ngRoute', 'lrNotifier', 'ngAnimate'])
         .config(['$routeProvider', function (routeProvider) {
 
             function findPost(route, post) {
@@ -12,7 +12,7 @@
 
             routeProvider.when('/posts/:post', {
                 controller: 'postCtrl',
-                templateUrl: '/static/modules/posts/post.html',
+                templateUrl: '/static/themes/default/view/post.html',
                 resolve: {
                     post: ['$route', 'Post', function (route, post) {
                         return findPost(route, post);

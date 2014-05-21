@@ -80,22 +80,9 @@
 .edit {
 
   color: $lighter-gray;
-  .tag-item:hover {
-    background: $base-color;
-  }
-
   .tag-item > .btn {
-    margin: 0 0.4em;
-    background: $base-contrast-color;
-    border-width: 0;
     color: $lighter-gray;
-
-    &:hover {
-      background: $base-contrast-color-light;
-      color: white;
-    }
   }
-
 }
 
 .metadata {

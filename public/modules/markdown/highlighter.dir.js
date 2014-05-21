@@ -33,11 +33,12 @@
 
                     function increaseSize() {
                         if (element[0].scrollHeight > element[0].offsetHeight) {
-                            element.css('height', element[0].scrollHeight + 20 + 'px');
+                            element.css('height', element[0].scrollHeight + 40 + 'px');
                         }
                     }
 
-                    timeout(increaseSize, 100);
+                    //need to wait for the transition to complete
+                    timeout(increaseSize, 1100);
 
                     element.bind('input', increaseSize);
                 }

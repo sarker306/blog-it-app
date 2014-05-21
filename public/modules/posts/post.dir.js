@@ -3,7 +3,7 @@
     ng.module('blog-it.posts').directive('blotItPost', function () {
         return {
             replace: true,
-            templateUrl: '/static/modules/posts/post.html',
+            templateUrl: '/static/themes/default/view/post.html',
             scope: {post: '='}
         }
     })

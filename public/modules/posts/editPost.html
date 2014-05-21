@@ -5,19 +5,30 @@
             <label for="postTitle">Post title</label>
             <input required type="text" id="postTitle" ng-model="post.postTitle"/>
 
+            <label>Post content:</label>
+
             <div class="markdown-editor-container" ng-class="{fullScreen:isEditorOpen}">
+                <div class="editor-tool-bar">
+                    <span ng-show="isEditorOpen" class="tool-item btn">
+                        <a class="icon-contract very-small" ng-click="toggleEditor()" href="#"></a>
+                    </span>
+                    <span ng-show="!isEditorOpen" class="tool-item btn">
+                        <a class="icon-pencil very-small" ng-click="toggleEditor()" href="#"></a>
+                    </span>
+                </div>
                 <div class="markdown-editor">
-                    <div ng-if="isEditorOpen" class="editor-section editor-input">
-                        <textarea class="extensible" ng-model="post.postContent"></textarea>
+                    <div ng-if="isEditorOpen" class="editor-section editor-input sliding">
+                    <textarea class="extensible" ng-model="post.postContent"></textarea>
                          <pre class="markdown-highlighter" markdown-text="{{post.postContent}}">
                             <code></code>
                         </pre>
                     </div>
                     <div class="editor-preview post editor-section">
-                        <div ng-click="toggleEditor()" ng-bind-html="post.postContent | makeHtml"></div>
+                        <div ng-bind-html="post.postContent | makeHtml"></div>
                     </div>
                 </div>
             </div>
+
             <label>Tags:</label>
 
             <div blog-it-tag-collection="post.tags" class="very-small edit"></div>

@@ -44,7 +44,7 @@
 }
 
 .tool-item {
-  display: inline;
+  display: inline-block;
   margin: 0 0.2em;
   background: $dark-gray;
   border-color: transparent $darker-gray $darker-gray transparent;

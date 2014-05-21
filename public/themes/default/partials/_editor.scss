@@ -1,4 +1,5 @@
 @import '../mixins/common';
+@import '../variables';
 
 .markdown-editor {
   display: flex;
@@ -8,28 +9,27 @@
   height: 100%;
 }
 
-.fullScreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.markdown-editor-container {
+
+  &.fullScreen {
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &:not(.fullScreen) {
+    border: 1px solid $base-color;
+  }
 }
 
 .editor-section {
-  flex-basis: 50%;
   overflow-y: auto;
   @include border-box;
-}
-
-.editor-input.ng-enter {
-  width: 0;
-  transition: all 1s ease 1s;
-  -webkit-transition: all 1s ease 1s;
-}
-
-.editor-input.ng-enter-active {
-  width: 100%;
+  display: inline-block;
 }
 
 %edit-sub-section {
@@ -45,6 +45,11 @@
 
 .editor-input {
   position: relative;
+  background: $lighter-gray;
+  flex-shrink: 0;
+
+  width: 50%;
+  opacity: 1;
 
   & > textarea {
     @extend %edit-sub-section;
@@ -59,12 +64,58 @@
   }
 }
 
+.sliding.ng-enter {
+  -webkit-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+  -moz-transition: width 0.5s ease-in-out 0, opacity 0.4s ease 0.1s;
+  -o-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+
+  transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+
+  width: 0;
+  opacity: 0;
+}
+
+.sliding.ng-enter-active {
+  width: 50%;
+  opacity: 1;
+}
+
+.sliding.ng-leave {
+  -webkit-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+  -moz-transition: width 0.5s ease-in-out 0, opacity 0.4s ease 0.1s;
+  -o-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+
+  transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+
+  width: 50%;
+  opacity: 1;
+}
+
+.sliding.ng-leave-active {
+  opacity: 0;
+  width: 0;
+}
+
+.editor-preview {
+  overflow-y: auto;
+  flex-shrink: 1;
+}
+
 .markdown-highlighter {
   @extend %edit-sub-section;
   word-wrap: break-word;
 }
 
-.editor-preview {
-  flex-grow: 1;
-  overflow-y: auto;
+.editor-tool-bar {
+  padding: 0.4em;
+  background: $light-gray;
+  border-bottom: 1px solid $base-gray;
+
+  & > .tool-item {
+    text-decoration: none;
+    color: #ffffff;
+
+  }
 }
+
+

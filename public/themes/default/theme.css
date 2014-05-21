@@ -1,8 +1,8 @@
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -23,10 +23,10 @@
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -415,10 +415,10 @@ table {
 }
 
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -439,10 +439,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -462,10 +462,10 @@ table {
 .main-header li {
     display: inline;
     padding: 1em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     cursor: pointer;
 }
 
@@ -480,10 +480,10 @@ table {
 }
 
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -504,10 +504,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -536,10 +536,10 @@ table {
 }
 
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -560,10 +560,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -611,10 +611,10 @@ table {
 
 .post a {
     color: #e08515;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
 }
 
 .post a:hover {
@@ -659,20 +659,8 @@ table {
     color: #e6e6e6;
 }
 
-.edit .tag-item:hover {
-    background: #166aae;
-}
-
 .edit .tag-item > .btn {
-    margin: 0 0.4em;
-    background: #e08515;
-    border-width: 0;
     color: #e6e6e6;
-}
-
-.edit .tag-item > .btn:hover {
-    background: #ff9f20;
-    color: white;
 }
 
 .metadata {
@@ -699,10 +687,10 @@ table {
 }
 
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -723,10 +711,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -774,24 +762,24 @@ table {
 }
 
 .tool-collection {
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     position: absolute;
     left: -200%;
     padding: 1em;
 }
 
 .tool-item {
-    display: inline;
+    display: inline-block;
     margin: 0 0.2em;
     background: #3c3c3c;
     border-color: transparent #1e1e1e #1e1e1e transparent;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
 }
 
 .tool-item:hover {
@@ -841,10 +829,10 @@ table {
 }
 
 .selected-post {
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     border-left: 5px solid #e08515;
 }
 
@@ -906,10 +894,10 @@ table {
 }
 
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -930,10 +918,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -951,7 +939,9 @@ table {
     height: 100%;
 }
 
-.fullScreen {
+.markdown-editor-container.fullScreen {
+    display: flex;
+    flex-flow: column;
     position: fixed;
     top: 0;
     left: 0;
@@ -959,22 +949,16 @@ table {
     bottom: 0;
 }
 
+.markdown-editor-container:not(.fullScreen) {
+    border: 1px solid #166aae;
+}
+
 .editor-section {
-    flex-basis: 50%;
     overflow-y: auto;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-}
-
-.editor-input.ng-enter {
-    width: 0;
-    transition: all 1s ease 1s;
-    -webkit-transition: all 1s ease 1s;
-}
-
-.editor-input.ng-enter-active {
-    width: 100%;
+    display: inline-block;
 }
 
 .editor-input > textarea, .markdown-highlighter {
@@ -992,6 +976,10 @@ table {
 
 .editor-input {
     position: relative;
+    background: #e6e6e6;
+    flex-shrink: 0;
+    width: 50%;
+    opacity: 1;
 }
 
 .editor-input > textarea {
@@ -1005,20 +993,59 @@ table {
     resize: none;
 }
 
+.sliding.ng-enter {
+    -webkit-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+    -moz-transition: width 0.5s ease-in-out 0, opacity 0.4s ease 0.1s;
+    -o-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+    transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+    width: 0;
+    opacity: 0;
+}
+
+.sliding.ng-enter-active {
+    width: 50%;
+    opacity: 1;
+}
+
+.sliding.ng-leave {
+    -webkit-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+    -moz-transition: width 0.5s ease-in-out 0, opacity 0.4s ease 0.1s;
+    -o-transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+    transition: width 0.5s ease-in-out 0, opacity 0.7s ease 0.3s;
+    width: 50%;
+    opacity: 1;
+}
+
+.sliding.ng-leave-active {
+    opacity: 0;
+    width: 0;
+}
+
+.editor-preview {
+    overflow-y: auto;
+    flex-shrink: 1;
+}
+
 .markdown-highlighter {
     word-wrap: break-word;
 }
 
-.editor-preview {
-    flex-grow: 1;
-    overflow-y: auto;
+.editor-tool-bar {
+    padding: 0.4em;
+    background: #aeaeae;
+    border-bottom: 1px solid #646464;
+}
+
+.editor-tool-bar > .tool-item {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .ng-enter.post-item, .ng-enter.selected-post, .ng-enter.notification-item, .ng-enter.main-view {
-    transition: opacity 1s ease 0;
     -webkit-transition: opacity 1s ease 0;
     -moz-transition: opacity 1s ease 0;
     -o-transition: opacity 1s ease 0;
+    transition: opacity 1s ease 0;
     opacity: 0;
 }
 
@@ -1039,10 +1066,10 @@ table {
     background: #646464;
     border-color: transparent #3c3c3c #3c3c3c transparent;
     padding: 0.6em;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
     text-decoration: none;
 }
 
@@ -1230,10 +1257,10 @@ input:focus, textarea:focus {
     -webkit-box-shadow: 0 0 0.4em 0 #e08515;
     -moz-box-shadow: 0 0 0.4em 0 #e08515;
     box-shadow: 0 0 0.4em 0 #e08515;
-    transition: all 0.5s ease 0;
     -webkit-transition: all 0.5s ease 0;
     -moz-transition: all 0.5s ease 0;
     -o-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
 }
 
 input, label, textarea, button {
