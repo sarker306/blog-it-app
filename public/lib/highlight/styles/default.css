@@ -7,7 +7,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 .hljs {
     display: block;
     padding: 0.5em;
-    background: inherit;
+    background: #e6e6e6;
 }
 
 .hljs,
