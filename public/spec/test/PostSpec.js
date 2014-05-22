@@ -31,28 +31,70 @@ describe('posts module', function () {
 
     });
 
-    describe('blog dashboard controller', function () {
+    describe('postListCtrl', function () {
+        var ctrl;
+        var scope;
+        var posts = [
+            {postTitle: 'post1'},
+            {postTitle: 'post1'}
+        ];
+        var postMock = {};
 
-        var channelMock = {
-            success: angular.noop,
-            error: angular.noop
-        };
+        beforeEach(inject(function ($controller, $rootScope, $q) {
+            scope = $rootScope;
+            postMock.find = function () {
+                return $q.when(posts).then(function (posts) {
+                    return posts;
+                });
+            };
+            ctrl = $controller('postListCtrl', {$scope: scope, Post: postMock, tag: ''});
+        }));
+
+        it('should init the scope', function () {
+            expect(scope.posts).toEqual([]);
+            scope.$apply();
+            expect(scope.posts).toEqual(posts);
+        });
+
+        it('should load more', function () {
+            scope.$apply();
+            spyOn(postMock, 'find').andCallThrough();
+            expect(scope.posts.length).toBe(2);
+            scope.loadMore();
+            expect(scope.isLoading).toBe(true);
+            scope.$apply();
+            expect(scope.isLoading).toBe(false);
+            expect(scope.posts.length).toBe(4);
+            expect(postMock.find).toHaveBeenCalledWith({start: 2});
+        });
+
+        it('should exec a query', function () {
+            scope.$apply();
+            spyOn(postMock, 'find').andCallThrough();
+            scope.query({prop: 'value'});
+            expect(scope.isLoading).toBe(true);
+            scope.$apply();
+            expect(scope.isLoading).toBe(false);
+            expect(postMock.find).toHaveBeenCalledWith({prop: 'value'});
+        })
+    });
+
+    describe('short post list controller', function () {
+
         var postsSample = [
             {postTitle: 'postTitle1'},
             {postTitle: 'postTitle2'}
         ];
-        var notifier = function (name) {
-            channelMock.name = name;
-            return channelMock;
-        };
         var postMock = {};
         var ctrl;
         var scope;
+        var location;
 
-        beforeEach(inject(function ($controller, $rootScope, $q) {
+        beforeEach(inject(function ($controller, $rootScope, $q, $location) {
             var dependencies = {};
-            scope = $rootScope.$new();
-            postMock.all = function () {
+            scope = $rootScope;
+            location = $location;
+            postMock.find = function () {
                 return $q.when(angular.copy(postsSample)).then(function (result) {
                     return result;
                 });
@@ -60,64 +102,36 @@ describe('posts module', function () {
 
             dependencies.$scope = scope;
             dependencies.Post = postMock;
-            dependencies.Notifier = notifier;
-            ctrl = $controller('blogDashboardCtrl', dependencies);
+            dependencies.$controller = $controller;
+            dependencies.$location = $location;
+
+            spyOn(postMock, 'find').andCallThrough();
+            location.path('/what').search({tag: 'test'});
+
+            ctrl = $controller('shortListCtrl', dependencies);
         }));
 
-        it('should init the data model', function () {
-            expect(channelMock.name).toBe('global');
-            expect(scope.posts).not.toBeDefined();
-            scope.$apply();
-            expect(scope.posts).toEqual(postsSample);
-            expect(scope.selectedPost).toEqual(postsSample[0]);
+        it('should be a mixin of postListController', function () {
+            expect(scope.query).toBeDefined();
+            expect(scope.loadMore).toBeDefined();
         });
 
-        it('should change the selected post', function () {
+        it('should init the scope', function () {
             scope.$apply();
-            expect(scope.selectedPost).toEqual(scope.posts[0]);
-            scope.select(scope.posts[1]);
-            expect(scope.selectedPost).toEqual(scope.posts[1]);
+            expect(postMock.find.calls[postMock.find.calls.length - 1].args).toEqual([
+                {tag: 'test'}
+            ]);
         });
 
-        it('should remove the selected post then call the notifier', inject(function ($q) {
-            spyOn(channelMock, 'success');
-            scope.$apply();
-            angular.forEach(scope.posts, function (value, key) {
-                value.$remove = function () {
-                    var deferred = $q.defer();
-                    deferred.resolve();
-                    return deferred.promise;
-                }
-            });
-            scope.deletePost();
-            expect(scope.posts.length).toBe(2);
-            scope.$apply();
-            expect(scope.posts.length).toBe(1);
-            expect(channelMock.success).toHaveBeenCalledWith('post postTitle1 has been removed');
-            expect(scope.selectedPost.postTitle).toEqual('postTitle2');
-            scope.deletePost();
-            scope.$apply();
-            expect(scope.posts.length).toBe(0);
-            expect(scope.selectedPost).toBe(null);
-        }));
-
-        it('should load more post', function () {
-
-            spyOn(postMock, 'all').andCallThrough();
-
+        it('should keep track of query parameters when loading more', function () {
             scope.$apply();
             scope.loadMore();
-            expect(scope.isLoading).toBe(true);
-            expect(postMock.all.mostRecentCall.args[0]).toEqual({start: 2, end: 7});
             scope.$apply();
-            expect(scope.isLoading).toBe(false);
-            expect(scope.posts.length).toBe(4);
-            scope.loadMore();
-            expect(scope.isLoading).toBe(true);
-            expect(postMock.all.mostRecentCall.args[0]).toEqual({start: 4, end: 9});
-            scope.$apply();
-            expect(scope.isLoading).toBe(false);
+            expect(postMock.find.calls[postMock.find.calls.length - 1].args).toEqual([
+                {tag: 'test', start: 2}
+            ]);
         });
+
 
     });
 
@@ -245,54 +259,6 @@ describe('posts module', function () {
             expect(lis.length).toEqual(1);
             expect(lis[0].innerText).toEqual('first');
         });
-    });
-
-    describe('postListCtrl', function () {
-        var ctrl;
-        var scope;
-        var posts = [
-            {postTitle: 'post1'},
-            {postTitle: 'post1'}
-        ];
-        var postMock = {};
-
-        beforeEach(inject(function ($controller, $rootScope, $q) {
-            scope = $rootScope;
-            postMock.find = function () {
-                return $q.when(posts).then(function (posts) {
-                    return posts;
-                });
-            };
-            ctrl = $controller('postListCtrl', {$scope: scope, Post: postMock, tag: ''});
-        }));
-
-        it('should init the scope', function () {
-            expect(scope.posts).toEqual([]);
-            scope.$apply();
-            expect(scope.posts).toEqual(posts);
-        });
-
-        it('should load more', function () {
-            scope.$apply();
-            spyOn(postMock, 'find').andCallThrough();
-            expect(scope.posts.length).toBe(2);
-            scope.loadMore();
-            expect(scope.isLoading).toBe(true);
-            scope.$apply();
-            expect(scope.isLoading).toBe(false);
-            expect(scope.posts.length).toBe(4);
-            expect(postMock.find).toHaveBeenCalledWith({start: 2});
-        });
-
-        it('should exec a query', function () {
-            scope.$apply();
-            spyOn(postMock, 'find').andCallThrough();
-            scope.query({prop: 'value'});
-            expect(scope.isLoading).toBe(true);
-            scope.$apply();
-            expect(scope.isLoading).toBe(false);
-            expect(postMock.find).toHaveBeenCalledWith({prop: 'value'});
-        })
     });
 });
 

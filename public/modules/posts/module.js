@@ -10,6 +10,11 @@
                 });
             }
 
+            routeProvider.when('/posts', {
+                controller: 'shortListCtrl',
+                templateUrl: '/static/themes/default/view/blog.html'
+            });
+
             routeProvider.when('/posts/:post', {
                 controller: 'postCtrl',
                 templateUrl: '/static/themes/default/view/post.html',

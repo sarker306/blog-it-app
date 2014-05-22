@@ -17,8 +17,9 @@
                 scope.posts = result;
             });
 
-            scope.loadMore = function () {
-                query({start: scope.posts.length}).then(function (result) {
+            scope.loadMore = function (queryObj) {
+                var queryObject = ng.extend({start: scope.posts.length}, queryObj);
+                query(queryObject).then(function (result) {
                     scope.posts = scope.posts.concat(result);
                 });
             };

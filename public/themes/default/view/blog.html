@@ -15,7 +15,7 @@
                     </p>
                     <ul class="tag-collection icon-tag small">
                         <li class="tag-item btn" ng-repeat="tag in post.tags track by $index">
-                            <a href="#">{{tag}}</a>
+                            <a ng-href="/posts?tag={{tag}}">{{tag}}</a>
                         </li>
                     </ul>
                 </header>
