@@ -16,7 +16,7 @@
                     '</div>',
                 link: function (scope, element, attr) {
 
-                    var input = ng.element(element.children()[1]);
+                    var input = ng.element(element.children()[0]);
 
                     scope.tags = scope.tags || [];
 

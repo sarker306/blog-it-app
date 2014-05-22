@@ -212,8 +212,8 @@ describe('posts module', function () {
         }));
 
         it('should replace by the proper markup', function () {
-            expect(element.children()[0].nodeName).toEqual('UL');
-            expect(element.children()[1].nodeName).toEqual('INPUT');
+            expect(element.children()[1].nodeName).toEqual('UL');
+            expect(element.children()[0].nodeName).toEqual('INPUT');
         });
 
         it('should bind a new li element for every tag in the bound collection', function () {
