@@ -18,7 +18,9 @@ var modulesFiles = ['./app.js', './modules/**/module.js', './modules/**/*.js'];
 gulp.task('modules', function () {
     gulp.src(modulesFiles)
         .pipe(concat('modules.min.js'))
-        .pipe(uglify())
+        .pipe(uglify(
+            {mangle: false}//if true then angular throw error at run time, need to find out
+        ))
         .pipe(gulp.dest('../dist/js'));
 });
 
