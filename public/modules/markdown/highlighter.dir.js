@@ -23,7 +23,7 @@
                         hl(element[0]);
                     });
                 }
-            }
+            };
         }])
         // a hack for textarea which does not seem to grow with container size
         .directive('extensible', ['$timeout', function (timeout) {

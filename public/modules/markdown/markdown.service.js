@@ -5,12 +5,6 @@
 
             var cache = cacheFactory('markdown');
 
-
-            /**
-             * get markdown postContent base on a section name
-             * @param postName the key which refer to a section (in practice it refers to a blog post)
-             * @returns {*}
-             */
             function get(postName) {
 
                 var returnPromise;
@@ -27,11 +21,6 @@
                 return returnPromise;
             }
 
-            /**
-             * set a key/value pair in the cache
-             * @param key the key to set
-             * @param content the content related to the key
-             */
             function set(key, content) {
                 if (key) {
                     cache.put(key, content);

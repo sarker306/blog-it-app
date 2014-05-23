@@ -5,6 +5,6 @@
             var converter = new sd.converter();
             return function (val) {
                 return val ? converter.makeHtml(val) : '';
-            }
+            };
         });
 })(angular, Showdown);

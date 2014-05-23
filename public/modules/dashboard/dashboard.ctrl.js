@@ -24,6 +24,6 @@
                         channel.success('post has been removed');
                     });
                 }
-            }
+            };
         }]);
 })(angular);

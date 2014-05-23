@@ -3,9 +3,9 @@
     ng.module('blog-it.posts')
         .controller('postListCtrl', ['$scope', 'Post', function (scope, Post) {
 
-            function query(query) {
+            function query(queryObject) {
                 scope.isLoading = true;
-                return Post.find(query).then(function (result) {
+                return Post.find(queryObject).then(function (result) {
                     scope.isLoading = false;
                     return result;
                 });

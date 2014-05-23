@@ -16,7 +16,7 @@
             routeProvider.when('/about', {templateUrl: '/static/themes/default/view/about.html'});
             routeProvider.otherwise({redirect: '/'});
             locationProvider.html5Mode(true);
-            resourceProvider.setDefaultConfig({baseUrl: baseUrl})
+            resourceProvider.setDefaultConfig({baseUrl: baseUrl});
         }])
         .directive('lrStopPropagation', function () {
             return {
@@ -29,6 +29,6 @@
                         });
                     }
                 }
-            }
+            };
         });
 })(angular);

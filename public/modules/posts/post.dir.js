@@ -5,6 +5,6 @@
             replace: true,
             templateUrl: '/static/themes/default/view/post.html',
             scope: {post: '='}
-        }
-    })
+        };
+    });
 })(angular);

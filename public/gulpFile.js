@@ -3,15 +3,24 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var fs = require('fs');
 var karma = require('karma').server;
-//var lint = require('gulp-lint');
+var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
+var stylish = require('jshint-stylish');
+
+var modulesFiles = ['./app.js', './modules/**/module.js', './modules/**/*.js'];
 
 //modules
 gulp.task('modules', function () {
-    gulp.src(['./app.js', './modules/**/module.js', './modules/**/*.js'])
+    gulp.src(modulesFiles)
         .pipe(concat('modules.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('../dist/js'))
+        .pipe(gulp.dest('../dist/js'));
+});
+
+gulp.task('lint', function () {
+    gulp.src(modulesFiles)
+        .pipe(jshint())
+        .pipe(jshint.reporter(stylish));
 });
 
 //bower components
@@ -26,7 +35,11 @@ gulp.task('components', function () {
 gulp.task('lib', function () {
 
     //Angular
-    gulp.src(['./lib/angular/angular.min.js', './lib/angular/angular-route.min.js'])
+    gulp.src(['./lib/angular/angular.min.js',
+        './lib/angular/angular-route.min.js',
+        './lib/angular/angular-animate.min.js',
+        './lib/angular/angular-sanitize.min.js'])
+        .pipe(concat('angular.min.js'))
         .pipe(gulp.dest('../dist/lib/angular'));
 
     //highlight.js
@@ -40,7 +53,6 @@ gulp.task('lib', function () {
 
 //theme
 gulp.task('theme', function () {
-
 });
 
 //index
@@ -57,3 +69,6 @@ gulp.task('karma-CI', function (done) {
     console.log(conf);
     karma.start(conf, done);
 });
+
+gulp.task('build', ['karma-CI', 'modules', 'lib', 'components', 'theme', 'index']);
+
