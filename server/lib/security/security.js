@@ -39,7 +39,7 @@ function bodyCheckMiddlewareFactory(array) {
         });
 
         return hasAll === true ? next() : res.json(400, {message: messages.badRequest})
-    }
+    };
 }
 
 exports.bodyCheckMiddlewareFactory = function () {

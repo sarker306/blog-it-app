@@ -10,7 +10,7 @@ function verify(email, password, done) {
             return bcrypt.compareSync(password, user.password);
         }
 
-        if (!user) {
+        if (!user || !user.password) {
             done(null, false, {message: 'Incorrect username'});
         } else if (isValidPassword(password) !== true) {
             return done(null, false, { message: 'Incorrect password' });

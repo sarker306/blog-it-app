@@ -30,6 +30,7 @@ MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, functio
         res.send(404);
     });
 
+    app.use(compress());
     app.use(json());
     app.use(cookieParser());
     //handle session with mongo store

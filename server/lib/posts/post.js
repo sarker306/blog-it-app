@@ -10,7 +10,7 @@ function getPostDao(db) {
 
     function addNew(newPost) {
         newPost._id = newPost.postTitle.toLowerCase().trim().replace(/\s/g, '-');
-        newPost.createdAt = new Date();
+        newPost.createdAt = Date.now();
         return standardAddNew(newPost);
     }
 
@@ -20,7 +20,7 @@ function getPostDao(db) {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(result)
+                    resolve(result);
                 }
             });
         });

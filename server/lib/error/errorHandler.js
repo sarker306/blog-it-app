@@ -9,5 +9,5 @@ module.exports = function errorHandler(req, res) {
         } else {
             res.json(500, {message: messages.internalError});
         }
-    }
+    };
 };

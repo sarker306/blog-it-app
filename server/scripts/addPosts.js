@@ -4,7 +4,7 @@ var config = require('../config.js');
 var posts = require('../lib/posts/post.js');
 var tagList = ['post', 'whatever', 'blah'];
 var authors = ['Laurent', 'Renard', 'Bob'];
-var imageUrl = 'http://u1.ipernity.com/42/15/73/32541573.c7aed9c5.240.jpg?r2';
+var imageUrl = 'http://u1.ipernity.com/42/15/73/32541573.c7aed9c5.500.jpg?r2';
 var paragraphs = [
     'Phasellus elit quam, mollis molestie [ligula](#) eu, congue vestibulum nulla. Morbi faucibus enim a feugiat semper. Donec pharetra, erat et venenatis venenatis, odio sem pulvinar eros, id porta [nisl](#) arcu vitae ligula. Mauris ipsum justo, vehicula et erat eu, porttitor euismod magna. Nam vehicula consectetur nibh, vel rutrum dui commodo id. In hac habitasse platea dictumst. In bibendum pellentesque mi sit amet pretium. Nam orci turpis, tempus quis mi eleifend, varius tempus urna. Integer euismod ultricies dolor. Vivamus eu consequat erat. In nec magna metus.',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sodales hendrerit sem, sit amet sagittis mauris eleifend quis. Sed ultricies fringilla felis nec rhoncus. Maecenas ac adipiscing orci, at laoreet ligula. Maecenas at lectus nisi. Morbi ullamcorper gravida elementum. Suspendisse potenti. Nulla suscipit in sem vel eleifend. Sed mollis, velit sit amet eleifend vehicula, neque elit malesuada ligula, sit amet eleifend metus ante nec diam. Mauris vestibulum lorem quis odio fermentum accumsan. Quisque sem ligula, ornare sit amet dapibus ut, tincidunt ac lorem. Cras odio libero, viverra eget hendrerit non, tincidunt ac augue. Suspendisse aliquet mollis erat sit amet aliquet.',
@@ -12,9 +12,8 @@ var paragraphs = [
 MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, function (err, db) {
 
     var Post = posts(db);
-    var number = 20;
+    var i = 0;
     var remaining = 20;
-    var i;
     var r = function () {
         return Math.ceil(Math.random() * 3);
     };
@@ -54,17 +53,26 @@ MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, functio
         console.error('was not able to connect to db');
     }
 
-    for (i = 0; i < number; i++) {
-        setInterval(Post.insert(createPost()).then(function () {
-            remaining -= 1;
-            if (remaining === 0) {
-                console.log(number + ' post inserted successfully');
+
+    function insert() {
+        return Post.insert(createPost())
+            .then(function () {
+
+                remaining--;
+                if (remaining < 1) {
+                    db.close();
+                    console.log('posts successfully inserted');
+                }
+
+            }, function (err) {
+                console.error('error while inserting post: ' + err);
                 db.close();
-            }
-        }, function (err) {
-            console.error('error while inserting post: ' + err);
-            db.close();
-        }), 1000);
+            });
     }
+
+    for (i = 0; i < 20; i++) {
+        insert();
+    }
+
 });
 

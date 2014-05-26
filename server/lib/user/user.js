@@ -10,10 +10,10 @@ function createUserDAO(db) {
     function createUser(email, password) {
         // Generate password hash
         var salt = bcrypt.genSaltSync();
-        var password_hash = bcrypt.hashSync(password, salt);
+        var passwordHash = bcrypt.hashSync(password, salt);
 
         // Create user document
-        var user = {'_id': email, email: email, 'password': password_hash};
+        var user = {'_id': email, email: email, 'password': passwordHash};
 
 
         return standardInsert(user, {w: 1});
