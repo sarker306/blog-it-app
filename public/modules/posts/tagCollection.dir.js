@@ -1,3 +1,6 @@
+/**
+ * input directive for adding/removing tags
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.posts')

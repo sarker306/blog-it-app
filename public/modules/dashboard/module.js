@@ -1,3 +1,6 @@
+/**
+ * module related to the user dashboard
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.dashboard', ['blog-it.posts', 'blog-it.security', 'ngRoute', 'lrNotifier'])

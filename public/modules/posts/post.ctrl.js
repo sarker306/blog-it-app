@@ -1,3 +1,6 @@
+/**
+ * controller when reading a single post
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.posts')

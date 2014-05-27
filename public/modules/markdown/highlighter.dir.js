@@ -1,3 +1,6 @@
+/**
+ * highlight a code block which is supposed to hold markdown string (uses Highlightjs)
+ */
 (function (ng, hljs, undefined) {
 
     'use strict';
@@ -25,6 +28,7 @@
                 }
             };
         }])
+
         // a hack for textarea which does not seem to grow with container size
         .directive('extensible', ['$timeout', function (timeout) {
             return {

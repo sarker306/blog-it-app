@@ -1,3 +1,6 @@
+/**
+ * dashboard controller (mixin with blog-it.posts#postListCtrl)
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.dashboard')
@@ -9,10 +12,18 @@
 
             scope.user = user;
 
+            /**
+             * select a post in the dashboard
+             * @param post post to select
+             */
             scope.selectPost = function (post) {
                 scope.selectedPost = post;
             };
 
+            /**
+             * remove a post (permanently ie call backend)
+             * @param post the post to remove
+             */
             scope.removePost = function (post) {
                 var index = scope.posts.indexOf(post);
                 if (index !== -1) {

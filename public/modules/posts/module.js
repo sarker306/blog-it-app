@@ -1,3 +1,7 @@
+/**
+ * module related to everything that deals with blog-post
+ */
+
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.posts', ['blog-it.resource', 'ngRoute', 'lrNotifier', 'ngAnimate'])

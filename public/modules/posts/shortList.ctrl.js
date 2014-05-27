@@ -1,3 +1,7 @@
+/**
+ * controller related to a filtered list of posts (based on tag for example)
+ * it extends blog-it.posts#postListCtrl behavior
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.posts')

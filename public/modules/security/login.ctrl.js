@@ -1,3 +1,6 @@
+/**
+ * controller of the login panel
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.security')

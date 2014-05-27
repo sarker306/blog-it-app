@@ -1,3 +1,7 @@
+/**
+ * This is the main module in charge of configuring the application and particularly
+ * the high level routes
+ */
 (function (ng, undefined) {
     'use strict';
     var baseUrl = '/api/';

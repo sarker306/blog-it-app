@@ -1,3 +1,6 @@
+/**
+ * main controller (higher level is the scope hierarchy)
+ */
 (function (ng, undefined) {
     'use strict';
     ng.module('blog-it.main')
