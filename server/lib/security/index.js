@@ -1,5 +1,11 @@
 var passport = require('passport');
 
+/**
+ * bootstrap the different authentication end point with their related authentication strategy
+ * @param userDao a service to access user collection
+ * @param expressapp an express application
+ * @param strategies an array of the different passport strategies
+ */
 exports.initialize = function (userDao, expressapp, strategies) {
 
     expressapp.use(passport.initialize());

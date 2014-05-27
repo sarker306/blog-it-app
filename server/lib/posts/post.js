@@ -1,6 +1,25 @@
 var daoFactory = require('blog-it-dao');
 var Promise = require('es6-promise').Promise;
 
+/**
+ * Create a service to access the posts collection.
+ * Return a service with the following interface
+ * return {
+        findOne: {promise},
+        findById: {promise},
+        find: {promise},
+        insert: {promise},
+        remove: {promise},
+        removeById: {promise},
+        save: {promise},
+        update: {promise},
+        updateById: {promise},
+        tags: {promise}
+    };
+ * see <a href="https://www.npmjs.org/package/blog-it-dao">blog-it-dao</a> for more information
+ * @param db a connected db
+ * @returns {*}
+ */
 function getPostDao(db) {
 
     var collectionName = 'posts';

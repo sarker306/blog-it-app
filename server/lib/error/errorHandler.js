@@ -1,5 +1,11 @@
 var messages = require('../../messages.js');
 
+/**
+ * simple error handler
+ * @param req http request
+ * @param res http response
+ * @returns {Function}
+ */
 module.exports = function errorHandler(req, res) {
     return function (err) {
         console.error(err);

@@ -1,8 +1,19 @@
 var messages = require('../../messages.js');
 var errorHandler = require('../error/errorHandler.js');
 
+/**
+ * attach the relevant routes to the express app
+ * @param express an express application
+ * @param dao a db access service
+ * @param security an object which hold the security middleware
+ */
 module.exports = function (express, dao, security) {
 
+    /**
+     * create a new post
+     * (require admin user)
+     * request body must contain "postContent" and "postTitle" fields
+     */
     express.post('/api/posts', security.requireAdminMiddleWare, security.bodyCheckMiddlewareFactory('postContent', 'postTitle'), function (req, res) {
 
         var post = req.body;
@@ -19,6 +30,9 @@ module.exports = function (express, dao, security) {
             .catch(errorHandler(req, res));
     });
 
+    /**
+     * get a particular post
+     */
     express.get('/api/posts/:post', function (req, res) {
         var postTitle = req.params.post;
         dao.findById(postTitle).then(function (result) {
@@ -30,6 +44,12 @@ module.exports = function (express, dao, security) {
         }, errorHandler(req, res));
     });
 
+    /**
+     * get a list of posts. Support query parameters
+     * start: the first post index to get
+     * end: the last post index to get
+     * tag: a tag to filter the posts
+     */
     express.get('/api/posts', function (req, res) {
         var pageSize = 5;
         var query = req.query || {};
@@ -47,6 +67,10 @@ module.exports = function (express, dao, security) {
         }, errorHandler(req, res));
     });
 
+    /**
+     * update a given post
+     * (require admin user)
+     */
     express.put('/api/posts/:postId', security.requireAdminMiddleWare, function (req, res) {
         var updatedPost = req.body;
         var id = req.params.postId;
@@ -60,6 +84,10 @@ module.exports = function (express, dao, security) {
 
     });
 
+    /**
+     * delete a given post
+     * (require admin user)
+     */
     express.del('/api/posts/:post', security.requireAdminMiddleWare, function (req, res) {
         var postTitle = req.params.post;
         dao.removeById(postTitle).then(function (result) {
@@ -67,6 +95,9 @@ module.exports = function (express, dao, security) {
         }, errorHandler(req, res));
     });
 
+    /**
+     * get the whole list of already existing tags
+     */
     express.get('/api/posts/tags/all', function (req, res) {
         dao.tags().then(function (tags) {
             res.json(200, tags);

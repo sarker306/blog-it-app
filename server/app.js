@@ -1,3 +1,8 @@
+/**
+ * This is the application entry point where the different modules are loaded, the db is connected and the web server is created
+ */
+
+
 var express = require('express');
 var config = require('./config.js');
 var MongoClient = require('mongodb').MongoClient;

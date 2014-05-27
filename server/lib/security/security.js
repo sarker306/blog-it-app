@@ -42,6 +42,10 @@ function bodyCheckMiddlewareFactory(array) {
     };
 }
 
+/**
+ * simple check if required field are within a request body
+ * @returns {*}
+ */
 exports.bodyCheckMiddlewareFactory = function () {
 
     var args = [].slice.call(arguments);

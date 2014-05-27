@@ -23,6 +23,15 @@ function verify(email, password, done) {
     });
 }
 
+/**
+ * A Passport authentication strategy based on email/password.
+ *
+ * Login info are stored in a users collection
+ *
+ * @param userDao a service to access info related to the users
+ * @returns {DBStrategy}
+ * @constructor
+ */
 function DBStrategy(userDao) {
 
     if (!(this instanceof DBStrategy)) {

@@ -1,3 +1,8 @@
+/**
+ *Set of human readable messages to send to the application
+ * @type {{notFound: string, badRequest: string, creationSuccess: string, conflict: string, internalError: string, authenticationRequired: string, forbidden: string}}
+ */
+
 module.exports = {
 
     notFound: 'the item could not be found: ',
