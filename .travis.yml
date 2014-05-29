@@ -5,8 +5,9 @@ node_js:
 services: mongodb
 
 before_script:
-  - npm install -g gulp
+  - npm install -g gulp jasmine-node
   - npm install
 
 script:
   - gulp build
+  - jasmine-node ./server/spec --verbose --forceexit

@@ -13,6 +13,8 @@ var html2js = require('gulp-ng-html2js');
 var minifyHtml = require('gulp-minify-html');
 var jasmine = require('gulp-jasmine');
 
+var cp = require('child_process');
+
 var modulesFiles = ['./public/app.js', './public/modules/**/module.js', './public/modules/**/*.js'];
 var disFolder = './dist/';
 
@@ -111,8 +113,13 @@ gulp.task('index', function () {
 
 //test
 gulp.task('test-server', function (done) {
-    gulp.src('./server/spec/*.js')
-        .pipe(jasmine({verbose: true, forceExit: true}));
+
+    cp.exec("NODE_ENV=test ./node_modules/.bin/jasmine-node ./server/spec --verbose --forceexit", function (err, stdout, stderr) {
+        console.log(stdout);
+    });
+//
+//    gulp.src('./server/spec/*.js')
+//        .pipe(jasmine({verbose: true, forceExit: true}));
 });
 
 gulp.task('karma-CI', function (done) {
@@ -123,7 +130,7 @@ gulp.task('karma-CI', function (done) {
     karma.start(conf, done);
 });
 
-gulp.task('test', ['karma-CI', 'test-server']);
+gulp.task('test', ['karma-CI']);
 
 gulp.task('build', ['test', 'modules', 'templates', 'lib', 'components', 'theme', 'index']);
 
