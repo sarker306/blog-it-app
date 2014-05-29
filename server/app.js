@@ -20,7 +20,7 @@ var cookieParser = require('cookie-parser');
 var app = express();
 
 
-MongoClient.connect('mongodb://localhost:27017/' + config.server.dbName, function (err, db) {
+MongoClient.connect(config.server.dbPath, function (err, db) {
 
     var userDao = userDAO(db);
     var dbStrategy = new DBStrategy(userDao);

@@ -4,9 +4,9 @@ var path = require('path');
  * @type {{port: number, staticFolderUrl: string, staticFolderMapping: string, cookieSecret: string, dbName: string}}
  */
 exports.server = {
-    port: 3000,
+    port: 8000,
     staticFolderUrl: '/static',
-    staticFolderMapping: path.resolve(__dirname, '../public/'),
+    staticFolderMapping: path.resolve(__dirname, '../dist/'),
     cookieSecret: 'a_big_secret',
-    dbName: 'blog-it-dev'
+    dbPath: 'mongodb://localhost:27017/blog-it-dev'
 };

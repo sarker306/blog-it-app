@@ -1,0 +1,65 @@
+{
+  "name": "blog-it-app",
+  "version": "1.0.0",
+  "description": "blog engine base on a full Javascript stack Angularjs, Node.js, mongodb",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "gulp test",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blog-it/blog-it-app.git"
+  },
+  "keywords": [
+    "blog",
+    "angular",
+    "full",
+    "stack",
+    "cms"
+  ],
+  "author": "Laurent Renard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blog-it/blog-it-app/issues"
+  },
+  "homepage": "https://github.com/blog-it/blog-it-app",
+  "dependencies": {
+    "blog-it-dao": "~0.1.0",
+    "es6-promise": "~0.1.1",
+    "express": "~4.0.0",
+    "passport-local": "~1.0.0",
+    "bcrypt-nodejs": "0.0.3",
+    "mongodb": "~1.4.0",
+    "body-parser": "~1.0.2",
+    "connect-mongostore": "~0.1.0",
+    "compression": "~1.0.1",
+    "express-session": "~1.0.1",
+    "cookie-parser": "~1.0.1",
+    "passport": "~0.2.0",
+    "serve-static": "~1.1.0"
+  },
+  "devDependencies": {
+    "blog-it-stub": "~0.1.0",
+    "gulp": "^3.6.2",
+    "gulp-concat": "^2.2.0",
+    "gulp-jasmine": "^0.2.0",
+    "gulp-jshint": "^1.6.1",
+    "gulp-minify-css": "^0.3.4",
+    "gulp-minify-html": "^0.1.3",
+    "gulp-ng-html2js": "^0.1.7",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.1",
+    "gulp-uglify": "^0.2.1",
+    "gulp-useref": "^0.4.3",
+    "jasmine-node": "~1.14.3",
+    "jshint-stylish": "^0.2.0",
+    "karma": "~0.12.16",
+    "karma-chrome-launcher": "~0.1.3",
+    "karma-coverage": "~0.2.1",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-jasmine": "~0.1.5",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "supertest": "~0.11.0"
+  }
+}
