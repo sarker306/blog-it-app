@@ -189,6 +189,39 @@ input, label, textarea, button {
   font-size: 1.2em;
 }
 
+.loading-indicator {
+
+  @include border-box;
+
+  width: 100%;
+
+  text-align: center;
+  padding: 0.7em;
+
+  &:before {
+    display: inline-block;
+    margin: 0 0.4em;
+    min-width: 1em;
+    min-height: 1em;
+
+    border-top: 4px solid $base-gray;
+    border-right: 4px solid $lighter-gray;
+    border-left: 4px solid $lighter-gray;
+    border-bottom: 4px solid $base-gray;
+
+    content: "";
+
+    @include animation(halfspin);
+    border-radius: 100%;
+  }
+}
+
+@include keyframes(halfspin) {
+  to {
+    @include transform(rotate(180deg));
+  }
+}
+
 
 
 
