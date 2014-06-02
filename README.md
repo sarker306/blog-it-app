@@ -12,3 +12,16 @@ For more information, refer to [documentation website](http://blog-it.nodejitsu.
 * fork this repository, run `npm install` then `npm start` and you application should run on port 8000
 * to run the test, `npm test`
 * build production optimized assets, `gulp build` then edit the config.js file under the server folder to target the dist folder
+
+## Road map
+
+I have many ideas to improve if I manage to find more time and/or money
+
+* file upload host (maybe with a third party like Amazon S3)
+* support comments
+* add authentication strategies (with OAuth providers)
+* add new themes
+* add tutorials
+* Add command line tool to ease development (it is quite trendy at the moment :) )
+* ...
+
