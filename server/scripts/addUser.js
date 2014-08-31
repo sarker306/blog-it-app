@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var config = require('../config.js');
 var userDao = require('../lib/user/user.js');
-MongoClient.connect(config.server.dbName, function (err, db) {
+MongoClient.connect(config.server.dbPath, function (err, db) {
 
     var userService = userDao(db);
     var email, username, password;
